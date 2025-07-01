@@ -1,24 +1,27 @@
+html {
+    scroll-behavior: smooth;
+}
+html a {
+    color: white;
+}
 
+html a:hover {
+    text-decoration:underline;
+    color: blue;
+}
+body {
+  background: linear-gradient(to bottom right, #ffecd2, #fcb69f, #f6f6f6);
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
 
+/* header styling */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightblue;
-    padding: 20px;
-    width: 100%;
-}
-
-.navbar1 {
-    background-color: blue;
-    width: 100%;
-}
-.navbar2 {
-    background-color: red;
-    width: 100%;
-}
-.navbar3 {
-    background-color: green;
+    padding: 0;
     width: 100%;
 }
 
@@ -26,7 +29,7 @@ header > div > img {
     width: 100px;
     height: auto;
 }
-header > .navbar3 > ul {
+.navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -38,15 +41,99 @@ header {
     justify-content: center;
     
 }
-
+/* main content styling*/
 .main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    gap: 30px;
+}
+.main-container div {
+    padding-bottom: 0;
+}
+/* Welcome section styling */
+
+.welcome {
+    width: 100%;
+}
+.welcome div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.welcome-text {
+  display: flex;
+  align-items: center; /* vertically aligns text and image */
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.text-column{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.5;
+  
+}
+.image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.image-column img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+/* About section styling */
+#mission {
+  background: linear-gradient(to left, #6a11cb, #2575fc); /* cool gradient */
+  color: white;
+  padding: 100px 20px;
+  border-radius: 5px;
+}
+.mission {
+    width: 100%;
+}
+.mission div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.mission-image {
+  display: flex;
+  align-items: center; /* vertically aligns text and image */
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+/* Contact section styling */
+
+.contact {
+
+    width: 100%;
+}
+.contact  div a {
+    color: blue;
 }
 .contact {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.contact-info {
     display: flex;
     justify-content: space-around;
 }
@@ -70,4 +157,22 @@ img {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+img.facebook {
+  width: 50px;          /* adjust size */
+  height: 50px;
+  margin-left: 10px;    /* optional spacing */
+  transition: transform 0.3s ease;
+}
+
+img.facebook:hover {
+  transform: scale(1.1); /* subtle zoom on hover */
 }

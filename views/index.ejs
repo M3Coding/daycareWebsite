@@ -1,37 +1,88 @@
 <%- include("partials/header.ejs") %>
+<hr />
 <div class="main-container">
-  <div class="welcome">
-    <div class="welcome-image"></div>
-    <div></div>
-  </div>
-
-  <div class="about">
-    <div></div>
-    <div class="about-image"></div>
-  </div>
-
-
-  <div class="contact">
-    <div class="card contact-form">
-      <img src="/images/avatar.jpg" alt="Avatar" style="width: 100%" />
-      <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-      </div>
+  <div class="welcome" id="welcome" name="welcome">
+    <div class="main welcome-image">
+      <h1>Welcome to Children's Keeper Learning Center!</h1>
     </div>
-    <div class="card feedback">
-      <img src="/images/avatar.jpg" alt="Avatar" style="width: 100%" />
-      <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-      </div>
-    </div>
-    <div class="card apply">
-      <img src="/images/avatar.jpg" alt="Avatar" style="width: 100%" />
-      <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
+    <div class="main welcome-text">
+      <div class="image-column"><img src="/images/welcome2.png" alt="" /></div>
+      <div class="text-column">
+        <p>
+          Welcome to Children’s Keeper Learning Center, where every child is
+          valued, nurtured, and inspired to grow! We are honored that you’ve
+          chosen us to be part of your child’s early learning journey. Our
+          dedicated team is committed to creating a safe, engaging, and
+          faith-filled environment that promotes curiosity, creativity, and
+          confidence. Together with families, we strive to build a strong
+          foundation for lifelong learning, character development, and joyful
+          discovery.
+        </p>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="main mission" id="mission" name="mission">
+    <div>
+      <h2>Our Mission</h2>
+    </div>
+    <div class="mission-image">
+      <div class="text-column">
+        <p>
+          At Children’s Keeper Learning Center, our mission is to provide a
+          safe, nurturing, and engaging environment where children can grow
+          academically, socially, and emotionally. We are dedicated to fostering
+          a love for learning through developmentally appropriate practices,
+          hands-on experiences, and individualized care. Our goal is to partner
+          with families to support each child’s unique potential and lay a
+          strong foundation for lifelong success.
+        </p>
+      </div>
+      <div class="image-column">
+        <img src="/images/daycareCollage.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="main contact" id="contact" name="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div class="card application">
+        <img src="/images/enroll.png" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><a href="/application.ejs"><b>Enroll TODAY!</b></a></h4>
+          <p>
+            Enroll your child at Children’s Keeper Learning Center today and
+            give them the opportunity to learn, grow, and thrive in a safe,
+            nurturing, and engaging environment designed to support their early
+            development every step of the way.
+          </p>
+        </div>
+      </div>
+      <div class="card feedback">
+        <img src="/images/feedback.png" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><a href="/feedback.ejs"><b>Feedback</b></a></h4>
+          <p>
+            Parents consistently share positive feedback, praising the daycare
+            for its caring staff, safe environment, and the noticeable growth
+            and happiness of their children.
+          </p>
+        </div>
+      </div>
+      <div class="card contact-us">
+        <img src="/images/contact.png" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><a href="/contact.ejs"><b>Contact Us!</b></a></h4>
+          <p>
+            Have questions or ready to take the next step? Contact us today —
+            our friendly team at Children’s Keeper Learning Center is here to
+            provide information, schedule a tour, and help you get started with
+            the enrollment process. We look forward to hearing from you!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/footer.ejs") %>
