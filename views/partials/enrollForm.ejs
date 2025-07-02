@@ -1,0 +1,38 @@
+
+<div class="enroll-container" name="enrollForm" id="enrollForm">
+    <form action="" class="container">
+        <span onclick="document.getElementById('enrollForm').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+        <label for="">
+            <h3>Enroll Today!</h3>
+            <p>We value your feedback! Please share your thoughts about our services.</p>
+        </label>
+        <%= new Date() %>
+        <p></p>
+            <label for="fname">Parent First Name:
+                <input type="text" placeholder="First Name" />
+            </label>
+            <label for="lname">Parent Last Name:
+                <input type="text" placeholder="Last Name" />
+            </label>
+        <label for="">Email:
+            <input type="email" placeholder="Your Email" />
+        </label>
+        <label for="phone">Phone Number:
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        </label>
+        <label for="fname">Child First Name:
+                <input type="text" placeholder="First Name" />
+            </label>
+        <label for="lname">Child Last Name:
+                <input type="text" placeholder="Last Name" />
+            </label>
+        <label for="dateOfBirth">Date of Birth:
+                <input type="date" />
+            </label>
+        <label for=""> Additional Comments(Medical Conditions, Allergies, etc.):
+            <textarea name="description" id="description" placeholder="Type your feedback..."></textarea>
+        </label>
+        <input type="submit" value="Submit Feedback" style="width:50%; " />
+    </form>
+</div>

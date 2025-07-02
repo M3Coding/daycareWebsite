@@ -74,7 +74,7 @@
         <img src="/images/enroll.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
-            <a href="/application.ejs"><b>Enroll TODAY!</b></a>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('enrollForm').style.display='block'"><b>Enroll Today!</b></a>
           </h4>
           <p>
             Enroll your child at Children’s Keeper Learning Center today and
@@ -84,18 +84,21 @@
           </p>
         </div>
       </div>
+      <%- include("partials/enrollForm.ejs") %>
       <div class="card1 feedback">
         <img src="/images/feedback.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
-            <a href="/feedback.ejs"><b>Feedback</b></a>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('feedback').style.display='block'"><b>Feedback</b></a>
           </h4>
           <p>
             Parents consistently share positive feedback, praising the daycare
             for its caring staff, safe environment, and the noticeable growth
             and happiness of their children.
           </p>
+          
         </div>
+        <%- include("partials/feedback.ejs") %>
       </div>
       <div class="card1 contact-us">
         <img src="/images/contact.png" alt="Avatar" style="width: 100%" />

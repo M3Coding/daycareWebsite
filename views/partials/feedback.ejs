@@ -1,0 +1,22 @@
+<div class="feedback-container" name="feedback" id="feedback">
+    <form action="" class="container">
+        <span onclick="document.getElementById('feedback').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+        <label for="">
+            <h3>Feedback</h3>
+            <p>We value your feedback! Please share your thoughts about our services.</p>
+        </label>
+        <%= new Date()%>
+        <p></p>
+        <label for="name">Name:
+            <input type="text" placeholder="Your Name" />
+        </label>
+        <label for="">Email:
+            <input type="email" placeholder="Your Email" />
+        </label>
+        <label for=""> Feedback:
+            <textarea name="description" id="description" placeholder="Type your feedback..."></textarea>
+        </label>
+        <input type="submit" value="Submit Feedback" style="width:50%; " />
+    </form>
+</div>

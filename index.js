@@ -22,6 +22,7 @@ app.get('/enrollment', (req, res) => {
   res.render("enrollment.ejs");
 });
 
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
