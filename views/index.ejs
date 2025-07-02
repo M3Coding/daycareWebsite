@@ -70,7 +70,7 @@
   <div class="main contact" id="contact" name="contact">
     <h2>Contact Us</h2>
     <div class="contact-info">
-      <div class="card application">
+      <div class="card1 application">
         <img src="/images/enroll.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
@@ -84,7 +84,7 @@
           </p>
         </div>
       </div>
-      <div class="card feedback">
+      <div class="card1 feedback">
         <img src="/images/feedback.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
@@ -97,7 +97,7 @@
           </p>
         </div>
       </div>
-      <div class="card contact-us">
+      <div class="card1 contact-us">
         <img src="/images/contact.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
@@ -114,28 +114,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
-    // Get the image element
-    const fadeImage = document.querySelector(".mission-image");
-
-    // Create a new Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        // If the image is visible in the viewport
-        if (entry.isIntersecting) {
-          // Add the 'visible' class to fade it in
-          entry.target.classList.add("visible");
-          // Stop observing the image after it's faded in
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    // Start observing the image
-    observer.observe(fadeImage);
-
-    
-  </script>
+  
 
   <%- include("partials/footer.ejs") %>
 </div>

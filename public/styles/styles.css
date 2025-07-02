@@ -197,6 +197,7 @@ h1{
 .contact >div {
     padding-bottom: 50px;
 }
+
 .contact  div a {
     color: blue;
 }
@@ -211,17 +212,18 @@ h1{
     display: flex;
     justify-content: space-around;
 }
-.card {
+.card1 {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
   transition: 0.3s;
   width: 20%;
   border-radius: 5px; 
+  background: white;
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.card1:hover {
+  box-shadow: 0 16px 20px 0 rgba(255, 255, 255, 0.5);
 }
 
 img {
@@ -256,4 +258,21 @@ img.facebook:hover {
 
 .album{
     background: linear-gradient(to left, #6a11cb, #2575fc);
+}
+
+/* Staff section styling */
+.staff-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    background: linear-gradient(to left, #6a11cb, #2575fc);
+}
+.staff-container > div {
+    padding-bottom: 50px;
+}
+.staff-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
