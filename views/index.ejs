@@ -104,7 +104,7 @@
         <img src="/images/contact.png" alt="Avatar" style="width: 100%" />
         <div class="container">
           <h4>
-            <a href="/contact.ejs"><b>Contact Us!</b></a>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('contactForm').style.display='block'"><b>Contact Us!</b></a>
           </h4>
           <p>
             Have questions or ready to take the next step? Contact us today —
@@ -113,6 +113,7 @@
             the enrollment process. We look forward to hearing from you!
           </p>
         </div>
+        <%- include("partials/contact.ejs") %>
       </div>
     </div>
   </div>

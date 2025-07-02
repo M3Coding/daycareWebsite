@@ -1,0 +1,26 @@
+<div class="contact-container" name="contactForm" id="contactForm">
+    <form action="" class="container">
+        <span onclick="document.getElementById('contactForm').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+        <label for="">
+            <h3>Contact</h3>
+            <p>Have a question or need more information? Fill out the form below and we’ll get back to you shortly!
+</p>
+        </label>
+        <%= new Date()%>
+        <p></p>
+        <label for="name">Full Name:
+            <input type="text" placeholder="Your Name" />
+        </label>
+        <label for="">Email:
+            <input type="email" placeholder="Your Email" />
+        </label>
+        <label for="phone">Phone:
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+        </label>
+        <label for=""> Reason for Contact:
+            <textarea name="description" id="description" placeholder="Type your feedback..."></textarea>
+        </label>
+        <input type="submit" value="Submit" style="width:50%; " />
+    </form>
+</div>

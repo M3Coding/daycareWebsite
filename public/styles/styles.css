@@ -376,3 +376,77 @@ textarea {
 span:hover {
     cursor: pointer;
 }
+
+/* Contact form styling */
+#contactForm {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.contact-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+
+/*Career section styling */
+
+.main-container > .welcome > .career-text .career-text-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+.main-container  .career-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    
+}
+.main-container > .career-details a {
+    color: blue;
+    text-decoration: underline;
+}
