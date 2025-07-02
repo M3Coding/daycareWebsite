@@ -253,3 +253,7 @@ img.facebook {
 img.facebook:hover {
   transform: scale(1.1); /* subtle zoom on hover */
 }
+
+.album{
+    background: linear-gradient(to left, #6a11cb, #2575fc);
+}

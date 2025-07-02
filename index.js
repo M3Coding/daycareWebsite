@@ -12,6 +12,15 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.render("index.ejs");
 });
+app.get('/staff', (req, res) => {
+  res.render("staff.ejs");
+});
+app.get('/career', (req, res) => {
+  res.render("career.ejs");
+});
+app.get('/enrollment', (req, res) => {
+  res.render("enrollment.ejs");
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
