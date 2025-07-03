@@ -59,7 +59,7 @@ header {
 .main-container>.welcome .staff-image {
     width: 100%;
     height: 700px;
-    background-image: url('/images/staff.jpg');
+    background-image: url('/images/staff.png');
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -219,7 +219,9 @@ h1{
   width: 20%;
   border-radius: 5px; 
   background: white;
+  height: 650px;
 }
+
 
 /* On mouse-over, add a deeper shadow */
 .card1:hover {
@@ -273,7 +275,7 @@ img.facebook:hover {
 }
 .staff-container img {
     width: 100%;
-    height: auto;
+    height: 300px;
     border-radius: 5px;
 }
 
@@ -449,4 +451,200 @@ span:hover {
 .main-container > .career-details a {
     color: blue;
     text-decoration: underline;
+}
+
+/* Teacher Blog section styling */
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  
+}
+.blog-container>.content .staff-image {
+    width: 100%;
+    height: 700px;
+    background-image: url('/images/staff.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    border-radius: 5px;
+    
+}
+input {
+  padding: 10px;
+  border: lightgray solid 2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 15px;
+
+}
+textarea {
+  border: lightgrey solid 2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 15px;
+
+}
+input {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.content hr {
+  border: gray;
+  border-radius: 15px;
+  border-style: inset;
+  border-width: 3px;
+}
+
+.content > h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1C3D56;
+  
+}
+h3 {
+    color: #1C3D56;
+    
+}
+
+/* Sidebars */
+.sidebar {
+  display: flex;
+  width: 25%;
+  padding: 15px;
+  text-align: left;
+  color: #000;
+  position: sticky;
+  top: 0;
+}
+.right {
+
+  border-left-width: 3px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  border-left-style: inset;
+
+}
+
+.left {
+  border-right: gray;
+  border-right-width: 3px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  border-right-style: inset;
+
+}
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+.sidebar a {
+    color: #1C3D56;
+} 
+
+/* Center Content */
+.content {
+  flex: 1;
+  padding: 15px;
+  
+  
+}
+
+/* Blog form */
+small {
+    display: block;
+    text-align: center;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+
+button {
+  padding: 10px 20px;
+  list-style: none;
+}
+.postSubmit {
+    display: inline;
+    padding: 0;
+    border: 0;
+    margin-left: 2%;
+    font: inherit;
+    font-weight: bold;
+    color: #1C3D56;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+#blogPosts {
+    display: flex;
+    flex-direction: column;
+  margin-top: 20px;
+  list-style: none;
+}
+.blog-container  .blogPosts  div {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.blog-post {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.edit-btn {
+    display: inline;
+    padding: 0;
+    border: 0;
+    margin-left: 2%;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+
+.delete-btn {
+    
+    display: inline;
+    padding: 0;
+    padding-left: 20px;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+
+.update-btn {
+    
+    display: inline;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Children's Keeper Learning Center</title>
-    <link rel="stylesheet" href="/styles/styles.css" />
+    
      <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -30,12 +30,12 @@
           <ul class="navbar-links">
             <li><a href="/">Home</a></li>
             <li><a href="#mission">Our Mission</a></li>
-            <li><a href="#contact"> Contact</a></li>
-            <li><a href="#contact">Enroll</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('contactForm').style.display='block'"> Contact</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('enrollForm').style.display='block'">Enroll</a></li>
             <li><a href="/staff">Staff</a></li>
             <li><a href="/career">Careers</a></li>
+            <li><a href="/teacherBlog">Teacher Blog</a></li>
             
-
           </ul>
         </div>
 
@@ -43,3 +43,5 @@
       
     </div>
  
+<%- include("contact.ejs") %>
+            <%- include("enrollForm.ejs") %>

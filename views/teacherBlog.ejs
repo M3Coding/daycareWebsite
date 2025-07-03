@@ -1,0 +1,156 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/styles/blog.css">
+<link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    
+
+
+<div class="blog-container">
+  <!-- Main Content -->
+  <div class="content welcome">
+    <div class="staff-image"></div>
+    <h1>Look What We Can Do!</h1>
+    <p class="instruction"><small style="color: #4F4F4F ;">*Let's Celebrate Greatness!*</small></p>
+    <form id="blogForm" action="/submit" method="POST">
+        <input type="text" class="blogTitle" id="blogTitle" name="blogTitle" placeholder="Achievement Title...">
+
+      <textarea id="blogInput" placeholder="Bright Minds, Big Moments..." name="userPost"></textarea>
+      <button class="postSubmit" type="submit" value="Submit">👉🏽Mic Drop🎤👈🏽</button>
+      <hr>
+      
+    </form>
+    
+    <div id="blogPosts" class="recentPosts">
+    
+        <% if (posts && posts.length > 0) {%>
+        <% posts.forEach(function(post) {%> 
+            <div class="post" data-id="<%= post.id %>" >
+              <h3><%=post.blogTitle%></h3>
+    
+                <p class="content" ><%= post.content %></p>
+                <p>Posted by: <%= post.userName %></p><p><%= post.today %></p>
+                <textarea  class="edit-box"  style="display:none;"></textarea>
+                <button class="edit-btn" type="button">📝</button>
+                <button class="delete-btn" type="" value="delete">❌</button>
+                <button class="update-btn" type="submit"value="update-btn" name="update-btn" style="display: none;">✅</button>
+                <hr>
+            </div>
+            <%});%>
+            <%}%>
+    <!--recent posts passed through here.-->
+  </div> 
+
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="sidebar right">
+
+    <div class="top-sidebar">
+        <ul>
+      <li>
+        <h3>Updates</h3>
+      </li>
+      <li><p>✅ Don't Forget to Enroll Your Child Today. Click the Enroll link in the navigation bar to enroll right here and right now!</p></li><hr>
+    </div><hr>
+    
+     
+      <div><iframe width="560" height="315" src="https://www.youtube.com/embed/ep-KuC2WfyM?si=A12Hbd91kLgEes8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+    </ul>
+  </div>
+  
+</div>
+<script>document.addEventListener("DOMContentLoaded", function () {
+  //open the edit box to type in the new content
+    document.querySelectorAll(".edit-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const postDiv = this.parentElement;
+        const contentEl = postDiv.querySelector(".content");
+        const editBox = postDiv.querySelector(".edit-box");
+        const updateBtn = postDiv.querySelector(".update-btn");
+        const deletebtn = postDiv.querySelector(".delete-btn")
+
+        // ✅ Fill textarea with the current post content
+        editBox.value = contentEl.textContent;
+
+        // ✅ Show the textarea and Save button
+        editBox.style.display = "block";
+        this.style.display = "none";
+        updateBtn.style.display = "inline-block";
+        deletebtn.style.display = "none";
+      });
+    });
+    //updates the old content to the new content.
+    document.querySelectorAll(".update-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const postDiv = this.parentElement;
+        const editBox = postDiv.querySelector(".edit-box");
+        const contentEl = postDiv.querySelector(".content");
+        const deletebtn = postDiv.querySelector(".delete-btn")
+        const postId = postDiv.dataset.id;
+
+        const updatedContent = editBox.value;
+
+        fetch("/update", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: postId, content: updatedContent })
+        })
+        .then(res => res.text())
+        .then(message => {
+          // ✅ Update the visible post content
+          contentEl.textContent = updatedContent;
+
+          // Hide the textarea and Save button, show Edit button again
+          editBox.style.display = "none";
+          this.style.display = "none";
+          postDiv.querySelector(".edit-btn").style.display = "inline-block";
+          deletebtn.style.display = "inline-block";
+        })
+        .catch(() => {
+          alert("Error updating post.");
+        });
+      });
+    });
+
+    //Delete btn js that connects to the server and deletes the post on client side and server side. 
+    document.querySelectorAll(".delete-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const postDiv = this.parentElement;
+        const editBox = postDiv.querySelector(".edit-box");
+        const contentEl = postDiv.querySelector(".content");
+        const postId = postDiv.dataset.id;
+        
+        fetch('/update', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: postId })
+      })
+      .then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  
+  return response.text(); 
+})
+.then(data => {
+  postDiv.remove();
+  console.log('Delete successful:', data);
+})
+.catch(error => {
+  console.error('Error during DELETE request:', error);
+});
+      
+
+
+      })
+    })
+  });</script>
+<%- include("partials/contact.ejs") %>
+            <%- include("partials/enrollForm.ejs") %>
+
+<%- include("partials/footer.ejs")%>

@@ -1,0 +1,418 @@
+html a {
+    color: white;
+}
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+}
+
+
+header > div > img {
+    width: 100px;
+    height: auto;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.navbar-container div {
+    background: linear-gradient(to left, #6a11cb, #2575fc) ;
+    
+}
+.navbar-container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+    
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Teacher Blog section styling */
+
+h1, h3{
+    background: linear-gradient(to left, #6a11cb, #2575fc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  
+}
+.blog-container>.content .staff-image {
+    width: 100%;
+    height: 700px;
+    background-image: url('/images/staff.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    border-radius: 5px;
+    
+}
+input {
+  padding: 10px;
+  border: lightgray solid 2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 15px;
+
+}
+textarea {
+  border: lightgrey solid 2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 15px;
+
+}
+input {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.content hr {
+  border: gray;
+  border-radius: 15px;
+  border-style: inset;
+  border-width: 3px;
+}
+
+.content > h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1C3D56;
+  
+}
+h3 {
+    color: #1C3D56;
+    
+}
+
+/* Sidebars */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 15px;
+  text-align: left;
+  color: #000;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.right {
+
+  border-left-width: 3px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  border-left-style: inset;
+
+}
+
+.sidebar > div {
+    height: 800px;
+    width: 100%;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+  list-style: none;
+  
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+.sidebar a {
+    color: #1C3D56;
+} 
+
+/* Center Content */
+.content {
+  flex: 1;
+  padding: 15px;
+  
+  
+}
+
+/* Blog form */
+small {
+    display: block;
+    text-align: center;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+
+button {
+  padding: 10px 20px;
+  list-style: none;
+}
+.postSubmit {
+    display: inline;
+    padding: 0;
+    border: 0;
+    margin-left: 2%;
+    font: inherit;
+    font-weight: bold;
+    color: #1C3D56;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+#blogPosts {
+    display: flex;
+    flex-direction: column;
+  margin-top: 20px;
+  list-style: none;
+}
+.blog-container  .blogPosts  div {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.blog-post {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.edit-btn {
+    display: inline;
+    padding: 0;
+    border: 0;
+    margin-left: 2%;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+
+.delete-btn {
+    
+    display: inline;
+    padding: 0;
+    padding-left: 20px;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+}
+
+
+.update-btn {
+    
+    display: inline;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+    -webkit-appearance: none;
+
+}
+
+/* Footer styling */
+.footer-div{
+    background: white;
+}
+footer {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+img.facebook {
+  width: 50px;          /* adjust size */
+  height: 50px;
+  margin-left: 10px;    /* optional spacing */
+  transition: transform 0.3s ease;
+}
+
+img.facebook:hover {
+  transform: scale(1.1); /* subtle zoom on hover */
+}
+
+.album{
+    background: linear-gradient(to left, #6a11cb, #2575fc);
+}
+
+/*Form styling */
+#feedback {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 15%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.feedback-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.feedback-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+
+/*Enrollment form styling */
+#enrollForm {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.enroll-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.enroll-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+
+/* Contact form styling */
+#contactForm {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.contact-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
