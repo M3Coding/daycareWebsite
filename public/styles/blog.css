@@ -55,10 +55,10 @@ h1, h3{
   gap: 20px;
   
 }
-.blog-container>.content .staff-image {
+.blog-container>.content .work-session {
     width: 100%;
     height: 700px;
-    background-image: url('/images/staff.png');
+    background-image: url('/images/worksession.png');
     background-repeat: no-repeat;
     background-size: cover;
     
