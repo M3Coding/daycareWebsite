@@ -56,31 +56,29 @@ header {
     
 }
 /* main content styling*/
-.main-container>.welcome .staff-image {
-    width: 100%;
-    height: 700px;
-    background-image: url('/images/staff.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+.main-container>.welcome video {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
     border-radius: 5px;
-    
 }
-.main-container>.welcome .welcome-image {
-    width: 100%;
-    height: 700px;
-    background-image: url('/images/welcomeStaff.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    border-radius: 5px;
+.main-container>.welcome video {
+    pointer-events: none;
+    user-select: none;
+    outline: none;
     
 }
 
+
 h1{
-    background: linear-gradient(to left, #6a11cb, #2575fc);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
+   
 }
 .main-container {
     display: flex;
@@ -99,18 +97,22 @@ h1{
 
 .welcome {
     width: 100%;
+    
 }
 .welcome div {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    
 }
 .welcome-message {
     padding-top: 50px;
+    
 }
 
 .welcome-text {
+    
   display: flex;
   align-items: center; /* vertically aligns text and image */
   justify-content: space-between;
@@ -126,6 +128,13 @@ h1{
   font-size: 1.2em;
   line-height: 1.5;
   
+  
+}
+.text-column >.welcome-para {
+    color: white;
+    
+    border-radius: 5px;
+    padding: 2px;
 }
 .image-column {
   display: flex;
@@ -142,14 +151,19 @@ h1{
   
 }
 /* About section styling */
-#mission {
- background: linear-gradient(to left, #6a11cb, #2575fc);
+#mission h2, 
+#mission p {
+ opacity: none;
   color: white;
-  padding: 100px 20px;
-  border-radius: 5px;
+  
+  
 }
 .mission {
+    background: linear-gradient(to left, #6a11cb, #2575fc);
     width: 100%;
+    opacity: 85%;
+    padding: 100px 20px;
+  border-radius: 5px;
 }
 .mission div {
     display: flex;
@@ -185,9 +199,7 @@ h1{
 }
 
 #carousel > h2 {
-    background: linear-gradient(to left, #6a11cb, #2575fc);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -202,6 +214,7 @@ h1{
     background: linear-gradient(to left, #6a11cb, #2575fc);
     border-radius: 5px;
     width: 100%;
+    opacity: 90%;
     
 }
 .contact >div {
@@ -251,11 +264,14 @@ img {
 .footer-div{
     background: white;
 }
+
 footer {
     display: flex;
     align-items: center;
     padding: 20px;
     text-align: center;
+    background: white;
+    border-radius: 5px;
 }
 img.facebook {
   width: 50px;          /* adjust size */
