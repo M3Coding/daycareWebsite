@@ -1,0 +1,157 @@
+/*Form styling */
+#feedback {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 15%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.feedback-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.feedback-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+/* Contact form styling */
+#contactForm {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: regb(0, 0, 0,);
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.contact-container > .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+/*Enrollment form styling */
+#enrollForm {
+  display: none; /* Initially hide the modal */
+  /* Other modal styling */
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: rgba(0, 0, 0, , 0.4);
+  border-radius: 5px;
+}
+.enroll-container > .container {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to left, #6a11cb, #2575fc) !important;
+    color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.enroll-container > .container > span {
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+span:hover {
+    cursor: pointer;
+}
+
+input[type=submit] {
+    margin-left: 25%;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    
+}
