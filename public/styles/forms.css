@@ -113,8 +113,8 @@ span:hover {
 .enroll-container > .container {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to left, #6a11cb, #2575fc) !important;
-    color: white;
+    background-color: #fefefe;
+
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -152,6 +152,6 @@ input[type=submit] {
     background: none;
     border-radius: 5px;
     border: 1px solid white;
-    color: white;
+    
     
 }
