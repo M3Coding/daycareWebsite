@@ -1,9 +1,18 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import axios from "axios";
 
 
 const app = express();
 const port = 3000;
+const weather_API = "https://api.weatherapi.com/v1/current.json?";
+const API_Key = "&key=4318854af23c46e09aa44845252907"
+
+const  varnville = "q=29944";
+const hampton = "q=29924";
+const yemassee = "q=29945";
+const estill = "q=29918";
+const gifford = "q=29923";
 let posts = [];
 
 app.use(express.static('public'));
@@ -11,23 +20,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set('view engine', 'ejs');
+app.set('views', './views'); 
+//render home page
+app.get('/', async (req, res) => {
+  try {
+    const weather = await axios.get(weather_API + varnville + API_Key);
+    res.render("index.ejs", {weather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon});
 
-app.get('/', (req, res) => {
-  res.render("index.ejs");
+  }catch (error) {
+  console.error("Error fetching weather:", error.message);
+  res.render("index.ejs", { weather: null, error: "Unable to load weather data." });
+}
+
 });
+
+//render staff page
 app.get('/staff', (req, res) => {
   res.render("staff.ejs");
 });
+
+//render career page
 app.get('/career', (req, res) => {
   res.render("career.ejs");
 });
+//render enrollement page
 app.get('/enrollment', (req, res) => {
   res.render("enrollment.ejs");
 });
+//render teacher blog page
 app.get('/teacherBlog', (req, res) => {
   res.render("teacherBlog.ejs", {posts: posts});
 });
 
+//Weather Api Integration into header 
 app.post("/submit", (req, res) =>{
     var today = new Date()
     const newPost= {
