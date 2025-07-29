@@ -1,7 +1,8 @@
-<div class="weather" id="weather" name="weather" style="color:black">
-    <ul style="list-style-type: none">
-            <li>Varnville <%= weather %>
-                <img src="<%= icon %>"></li>
-            
-          </ul>
+<div class="weather" id="weather" name="weather" style="color:#243363">
+    <ul style="list-style-type: none; font-size: small; text-align: end;">
+        <li>Current Condition: <%= currentWeather %>
+        <img src="<%= icon %>" width="30px" height="30px"></li> 
+        <li> Forecast: <%= maxTemp %> <img src="<%= expectedForecast %>" width="30px" height="30px"></li>
+        
+    </ul>
 </div>

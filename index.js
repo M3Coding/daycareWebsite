@@ -5,7 +5,7 @@ import axios from "axios";
 
 const app = express();
 const port = 3000;
-const weather_API = "https://api.weatherapi.com/v1/current.json?";
+const weather_API = "https://api.weatherapi.com/v1/forecast.json?";
 const API_Key = "&key=4318854af23c46e09aa44845252907"
 
 const  varnville = "q=29944";
@@ -25,7 +25,7 @@ app.set('views', './views');
 app.get('/', async (req, res) => {
   try {
     const weather = await axios.get(weather_API + varnville + API_Key);
-    res.render("index.ejs", {weather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon});
+    res.render("index.ejs", {currentWeather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon, maxTemp: weather.data.forecast?.forecastday[0]?.day?.condition?.text, expectedForecast: weather.data.forecast?.forecastday[0]?.day?.condition?.icon});//integrated weather api 
 
   }catch (error) {
   console.error("Error fetching weather:", error.message);
