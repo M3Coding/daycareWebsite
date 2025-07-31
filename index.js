@@ -25,7 +25,7 @@ app.set('views', './views');
 app.get('/', async (req, res) => {
   try {
     const weather = await axios.get(weather_API + varnville + API_Key);
-    res.render("index.ejs", {currentWeather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon, maxTemp: weather.data.forecast?.forecastday[0]?.day?.condition?.text, expectedForecast: weather.data.forecast?.forecastday[0]?.day?.condition?.icon});//integrated weather api 
+    res.render("index.ejs", {currentWeather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon, condition: weather.data.forecast?.forecastday[0]?.day?.condition?.text, maxTemp: weather.data.forecast?.forecastday[0]?.day?.maxtemp_f, minTemp: weather.data.forecast?.forecastday[0]?.day?.mintemp_f });//integrated weather api 
 
   }catch (error) {
   console.error("Error fetching weather:", error.message);

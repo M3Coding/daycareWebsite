@@ -1,8 +1,9 @@
 <div class="weather" id="weather" name="weather" style="color:#243363">
-    <ul style="list-style-type: none; font-size: small; text-align: end;">
-        <li>Current Condition: <%= currentWeather %>
-        <img src="<%= icon %>" width="30px" height="30px"></li> 
-        <li> Forecast: <%= maxTemp %> <img src="<%= expectedForecast %>" width="30px" height="30px"></li>
+    <ul style="list-style-type: none; font-size: small; text-align: center;">
+        <h5><%= currentWeather %></h5>
+        <img src="<%= icon %>" width="40px" height="40px"> 
+        <li> <%= condition %> </li>
+        <li> H:<%= maxTemp %> L:<%= minTemp %> </li>
         
     </ul>
 </div>
