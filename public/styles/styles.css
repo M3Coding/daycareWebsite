@@ -320,7 +320,11 @@ img.facebook:hover {
 
 
 /*Career section styling */
-
+.staff-image {
+    background-image: url('../images/staff.png');
+    width: 100%;
+    height: 800px;
+}
 .main-container > .welcome > .career-text .career-text-column {
     display: flex;
     justify-content: center;

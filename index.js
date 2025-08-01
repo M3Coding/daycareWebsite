@@ -35,13 +35,29 @@ app.get('/', async (req, res) => {
 });
 
 //render staff page
-app.get('/staff', (req, res) => {
-  res.render("staff.ejs");
+app.get('/staff', async (req, res) => {
+  try {
+    const weather = await axios.get(weather_API + varnville + API_Key);
+    res.render("staff.ejs", {currentWeather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon, condition: weather.data.forecast?.forecastday[0]?.day?.condition?.text, maxTemp: weather.data.forecast?.forecastday[0]?.day?.maxtemp_f, minTemp: weather.data.forecast?.forecastday[0]?.day?.mintemp_f });//integrated weather api 
+
+  }catch (error) {
+  console.error("Error fetching weather:", error.message);
+  res.render("index.ejs", { weather: null, error: "Unable to load weather data." });
+}
+  
 });
 
 //render career page
-app.get('/career', (req, res) => {
-  res.render("career.ejs");
+app.get('/career', async (req, res) => {
+  try {
+    const weather = await axios.get(weather_API + varnville + API_Key);
+    res.render("career.ejs", {currentWeather: weather.data.current?.temp_f +"°F", icon: weather.data.current?.condition?.icon, condition: weather.data.forecast?.forecastday[0]?.day?.condition?.text, maxTemp: weather.data.forecast?.forecastday[0]?.day?.maxtemp_f, minTemp: weather.data.forecast?.forecastday[0]?.day?.mintemp_f });//integrated weather api 
+
+  }catch (error) {
+  console.error("Error fetching weather:", error.message);
+  res.render("index.ejs", { weather: null, error: "Unable to load weather data." });
+}
+  
 });
 //render enrollement page
 app.get('/enrollment', (req, res) => {
