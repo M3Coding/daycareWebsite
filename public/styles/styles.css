@@ -347,3 +347,118 @@ img.facebook:hover {
     text-decoration: underline;
 }
 
+/* Mobile devices (portrait tablets and down) */
+@media (max-width: 768px) {
+
+  /* Header & Navbar */
+  .header-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .navbar-container > div {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  header > div > img {
+    width: 80px;
+  }
+
+  /* Welcome Section */
+  .welcome div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-column, 
+  .image-column {
+    width: 100%;
+  }
+
+  .text-column {
+    font-size: 1em;
+    line-height: 1.4;
+    padding: 10px;
+  }
+
+  /* Mission Section */
+  .mission div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Contact Section */
+  .contact-info {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .card1 {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Staff Section */
+  .staff-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .staff-container img {
+    height: auto;
+    max-height: 250px;
+  }
+
+  /* Career Section */
+  .main-container > .welcome > .career-text .career-text-column {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  /* General spacing fixes */
+  .main-container {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .mission,
+  .contact,
+  .album,
+  .staff-container {
+    padding: 50px 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+}
+
+/* Very small screens (phones under 480px wide) */
+@media (max-width: 480px) {
+  header > div > img {
+    width: 60px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .text-column {
+    font-size: 0.9em;
+  }
+
+  .card1 {
+    width: 100%;
+  }
+}

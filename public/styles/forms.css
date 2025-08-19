@@ -155,3 +155,72 @@ input[type=submit] {
     
     
 }
+/* Mobile responsiveness for forms */
+@media (max-width: 768px) {
+  /* Feedback Form */
+  .feedback-container > .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  /* Contact Form */
+  .contact-container > .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  /* Enrollment Form */
+  .enroll-container > .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  /* Inputs / Textareas */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  /* Submit button */
+  input[type=submit] {
+    margin-left: 0;     /* Center button */
+    width: 100%;        /* Full width for mobile */
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  /* Close button "X" */
+  .feedback-container > .container > span,
+  .contact-container > .container > span,
+  .enroll-container > .container > span {
+    font-size: 24px;
+  }
+}
+
+/* Extra small devices (phones under 480px) */
+@media (max-width: 480px) {
+  .feedback-container > .container,
+  .contact-container > .container,
+  .enroll-container > .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  input[type=submit] {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}

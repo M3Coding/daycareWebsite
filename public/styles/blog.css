@@ -416,3 +416,129 @@ textarea {
 span:hover {
     cursor: pointer;
 }
+
+/* Tablet and smaller (stack layout) */
+@media (max-width: 768px) {
+
+  /* Header / Navbar */
+  .header-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    text-align: center;
+  }
+
+  header > div > img {
+    width: 80px;
+  }
+
+  /* Blog Layout */
+  .blog-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border: none;
+    margin-top: 20px;
+  }
+
+  .sidebar > div {
+    height: auto;
+  }
+
+  /* Forms */
+  .feedback-container > .container,
+  .contact-container > .container,
+  .enroll-container > .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  input[type=submit],
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    margin: 10px 0;
+  }
+
+  .feedback-container > .container > span,
+  .contact-container > .container > span,
+  .enroll-container > .container > span {
+    font-size: 24px;
+  }
+
+  /* Blog Post Adjustments */
+  .blog-container>.content .work-session {
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+/* Small Phones (very narrow screens) */
+@media (max-width: 480px) {
+
+  header > div > img {
+    width: 60px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .blog-container>.content .work-session {
+    height: 200px;
+  }
+
+  .feedback-container > .container,
+  .contact-container > .container,
+  .enroll-container > .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  input[type=submit],
+  button {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
