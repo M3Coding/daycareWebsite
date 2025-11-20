@@ -300,11 +300,10 @@ img.facebook:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 30px;
-    background: linear-gradient(to left, #6a11cb, #2575fc);
+    padding: 10px;
+
 }
 .staff-container > div {
-    padding-bottom: 10px;
     overflow: auto;
 }
 .staff-container img {
