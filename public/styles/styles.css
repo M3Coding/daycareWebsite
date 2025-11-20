@@ -255,7 +255,8 @@ h1{
 
 /* On mouse-over, add a deeper shadow */
 .card1:hover {
-  box-shadow: 0 16px 20px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 28px rgba(0, 0, 0, 0.32);
+  transform: translateY(-4px);
 }
 
 img {
@@ -401,7 +402,7 @@ img.facebook:hover {
   }
 
   .card1 {
-    width: 80%;
+    width: 50%;
     height: auto;
     margin-bottom: 20px;
   }
