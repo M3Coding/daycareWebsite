@@ -465,6 +465,8 @@ img.facebook:hover {
 
 /* Very small screens (phones under 480px wide) */
 @media (max-width: 480px) {
+
+  
   header > div > img {
     width: 60px;
   }
@@ -476,6 +478,13 @@ img.facebook:hover {
   .text-column {
     font-size: 0.9em;
   }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   .card1 {
     width: 50%;
