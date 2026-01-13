@@ -1,0 +1,261 @@
+/* ============================================
+   MARTIN LUTHER KING JR. DAY THEME
+   Pan-African Colors: Red, Green, Yellow
+   ============================================ */
+
+/* MLK Themed Banner - Pan-African Colors */
+.mlk-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a 50%, transparent 50%);
+  padding: 8px 0 15px 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mlk-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #DC143C, #FFD700, #228B22, #FFD700, #DC143C);
+  border-radius: 2px;
+}
+
+.banner-segment {
+  width: 12px;
+  height: 18px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+}
+
+.banner-segment::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 2px;
+}
+
+.banner-segment.red {
+  background: radial-gradient(circle at 30% 30%, #FF0000, #DC143C);
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
+
+.banner-segment.yellow {
+  background: radial-gradient(circle at 30% 30%, #FFD700, #FFA500);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.banner-segment.green {
+  background: radial-gradient(circle at 30% 30%, #32CD32, #228B22);
+  box-shadow: 0 0 10px rgba(34, 139, 34, 0.5);
+}
+
+/* MLK Header Enhancement */
+.mlk-header {
+  background: white;
+  border-bottom: 4px solid #228B22;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mlk-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #DC143C 0px,
+    #DC143C 20px,
+    #FFD700 20px,
+    #FFD700 40px,
+    #228B22 40px,
+    #228B22 60px
+  );
+}
+
+/* MLK Image Container in Header */
+.mlk-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.mlk-image-container img {
+  width: 120px;
+  height: 120px;
+ 
+  border: 4px solid #FFD700;
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.4),
+              0 0 20px rgba(34, 139, 34, 0.4);
+  object-fit: cover;
+}
+
+/* MLK Icons Styling */
+.mlk-icons {
+  font-size: 2em;
+  display: inline-block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* MLK Badge */
+.mlk-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #DC143C, #228B22);
+  color: white;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+              inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border: 2px solid #FFD700;
+}
+
+/* MLK Tribute Section */
+.mlk-tribute {
+  background: linear-gradient(135deg, #DC143C 0%, #228B22 100%);
+  color: white;
+  padding: 40px 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mlk-tribute-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.mlk-tribute-image {
+  flex: 0 0 300px;
+  text-align: center;
+}
+
+.mlk-tribute-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  border: 5px solid #FFD700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mlk-tribute-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.mlk-tribute-text h2 {
+  color: #FFD700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mlk-tribute-text p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .mlk-icons {
+    font-size: 1.5em;
+  }
+
+  .mlk-banner {
+    padding: 5px 0 10px 0;
+  }
+
+  .banner-segment {
+    width: 8px;
+    height: 12px;
+  }
+
+  .mlk-badge {
+    font-size: 0.85em;
+    padding: 6px 15px;
+  }
+
+  .mlk-image-container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .mlk-tribute {
+    padding: 30px 15px;
+  }
+
+  .mlk-tribute-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mlk-tribute-image {
+    flex: 1 1 100%;
+  }
+
+  .mlk-tribute-text h2 {
+    font-size: 2em;
+  }
+
+  .mlk-tribute-text p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .mlk-icons {
+    font-size: 1.2em;
+  }
+
+  .banner-segment {
+    width: 6px;
+    height: 10px;
+  }
+
+  .mlk-badge {
+    font-size: 0.75em;
+    padding: 5px 12px;
+  }
+
+  .mlk-image-container img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mlk-tribute {
+    padding: 20px 10px;
+  }
+
+  .mlk-tribute-text h2 {
+    font-size: 1.6em;
+  }
+
+  .mlk-tribute-text p {
+    font-size: 0.9em;
+  }
+}
+
+/* ============================================
+   END MARTIN LUTHER KING JR. DAY THEME
+   ============================================ */

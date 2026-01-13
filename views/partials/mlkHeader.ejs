@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Children's Keeper Learning Center</title>
+
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/mlk.css" />
+  </head>
+  <body>
+    <div class="header-div">
+      <!-- MLK Themed Decorative Banner - Pan-African Colors -->
+      <div class="mlk-banner">
+        <div class="banner-segment red"></div>
+        <div class="banner-segment yellow"></div>
+        <div class="banner-segment green"></div>
+        <div class="banner-segment red"></div>
+        <div class="banner-segment yellow"></div>
+        <div class="banner-segment green"></div>
+        <div class="banner-segment red"></div>
+        <div class="banner-segment yellow"></div>
+        <div class="banner-segment green"></div>
+        <div class="banner-segment red"></div>
+        <div class="banner-segment yellow"></div>
+        <div class="banner-segment green"></div>
+        <div class="banner-segment red"></div>
+        <div class="banner-segment yellow"></div>
+        <div class="banner-segment green"></div>
+      </div>
+
+      <header class="header-container mlk-header">
+        <div class="navbar">
+          <img class="logo1" src="/images/logo1.png" alt="" />
+          <span class="mlk-icons">🕊️</span>
+        </div>
+
+        <div class="navbar mlk-image-container">
+          <img src="/images/mlk.png" alt="Dr. Martin Luther King Jr." />
+        </div>
+
+        <div class="navbar">
+            <img class="logo" src="/images/daycareLogo.png" alt="" />
+            <div class="mlk-badge">MLK Day 2026</div>
+        </div>
+        <div>
+          <%- include("./weather.ejs") %>
+          <span class="mlk-icons">✊🏿</span>
+        </div>
+
+
+      </header>
+      <div class="navbar-container">
+        <div class="navbar2">
+          <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('contactForm').style.display='block'"> Contact</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('enrollForm').style.display='block'">Enroll</a></li>
+            <li><a href="/staff">Staff</a></li>
+            <li><a href="/career">Careers</a></li>
+            <!-- <li><a href="/teacherBlog">Teacher Blog</a></li> -->
+
+
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+<%- include("contact.ejs") %>
+            <%- include("enrollForm.ejs") %>
