@@ -73,28 +73,36 @@
       </div>
     </div>
   </div>
-  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-    <h2>Gallery</h2>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="4000" style="width: 800px; height: 600px;">
-      <img src="/images/boys.jpg" class="d-block w-100" alt="...">
+
+  <section class="showcase-section" id="student-recognition">
+    <div class="showcase-left">
+      <h2>Student Recognition</h2>
+      <div class="recognition-card">
+        <div class="recognition-video">
+          <video controls playsinline>
+            <source src="/images/selahJames.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="recognition-info">
+          <h3>Selah James</h3>
+          <p>Counting 1-10 in Spanish! Great Job Selah!</p>
+        </div>
+      </div>
     </div>
-    <div class="carousel-item" data-bs-interval="4000" style="width: 800px; height: 600px;">
-      <img src="/images/painting.jpg" class="d-block w-100" alt="...">
+    <div class="showcase-right">
+      <h2>Gallery</h2>
+      <div class="carousel-3d-wrapper">
+        <div class="carousel-3d-track">
+          <div class="carousel-3d-slide"><img src="/images/boys.jpg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/painting.jpg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/halloween.jpg" alt=""></div>
+        </div>
+        <button class="carousel-3d-btn prev" onclick="rotate3DCarousel(-1)">&lt;</button>
+        <button class="carousel-3d-btn next" onclick="rotate3DCarousel(1)">&gt;</button>
+      </div>
     </div>
-    <div class="carousel-item" data-bs-interval="4000" style="width: 800px; height: 600px;">
-      <img src="/images/halloween.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+  </section>
 
   <div class="main contact" id="contact" name="contact">
     <h2>Contact Us</h2>
@@ -148,7 +156,32 @@
     <p style="color: white; text-align: center;"><small> Email: regdc@yahoo.com <br> Phone Number: (803) 914-008  <br> 147 Cemetery Road, Varnville, SC 29944</small></p>
   </div>
 
-  
+  <script>
+    const track = document.querySelector('.carousel-3d-track');
+    const slides = document.querySelectorAll('.carousel-3d-slide');
+    let currentIndex = 0;
+    const total = slides.length;
+    const angle = 360 / total;
+
+    function setup3DCarousel() {
+      slides.forEach((slide, i) => {
+        slide.style.transform = `rotateY(${i * angle}deg) translateZ(350px)`;
+      });
+      rotate3DTo(0);
+    }
+
+    function rotate3DTo(index) {
+      track.style.transform = `rotateY(${-index * angle}deg)`;
+    }
+
+    function rotate3DCarousel(dir) {
+      currentIndex += dir;
+      rotate3DTo(currentIndex);
+    }
+
+    setup3DCarousel();
+    setInterval(() => rotate3DCarousel(1), 4000);
+  </script>
 
   <%- include("partials/footer.ejs") %>
 </div>

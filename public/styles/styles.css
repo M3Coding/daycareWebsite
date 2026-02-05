@@ -190,22 +190,67 @@ h1{
   100% { opacity: 1; } /* Fade to complete opacity */
 }
 
-/*Carousel styling */
-.carousel-inner {
+/* 3D Carousel styling */
+.carousel-3d-wrapper {
+    position: relative;
     width: 100%;
-    height: auto;
-    
+    max-width: 700px;
+    margin: 0 auto;
+    perspective: 1000px;
+    height: 480px;
+}
+.carousel-3d-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+.carousel-3d-slide {
+    position: absolute;
+    width: 340px;
+    height: 420px;
+    left: 50%;
+    top: 50%;
+    margin-left: -170px;
+    margin-top: -210px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+.carousel-3d-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.carousel-3d-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.carousel-3d-btn:hover {
+    background: white;
+}
+.carousel-3d-btn.prev {
+    left: 10px;
+}
+.carousel-3d-btn.next {
+    right: 10px;
 }
 
-#carousel > div {
-    padding-bottom: 30px;
-}
-
-#carousel > h2 {
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-}
 /* Contact section styling */
 .contact > h2 {
     background: white;
@@ -218,15 +263,11 @@ h1{
     border-radius: 5px;
     width: 100%;
     opacity: 90%;
-    
-    
 }
 .contact >div {
     padding-bottom: 50px;
-    
 }
-
-.contact  div a {
+.contact div a {
     color: blue;
 }
 .contact {
@@ -234,7 +275,6 @@ h1{
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    
 }
 .contact-info {
     display: flex;
@@ -252,10 +292,10 @@ h1{
 }
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
   transition: 0.3s;
   width: 20%;
-  border-radius: 5px; 
+  border-radius: 5px;
   background: white;
   height: auto;
   overflow: auto;
@@ -341,6 +381,79 @@ img.facebook:hover {
 
 
 
+/* Showcase section (Student Recognition + Gallery side by side) */
+.showcase-section {
+    display: flex;
+    width: 100%;
+    gap: 0;
+}
+.showcase-left {
+    flex: 1;
+    background: transparent;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.showcase-left h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+.showcase-right {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showcase-right .carousel-3d-wrapper {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.showcase-right h2 {
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 15;
+}
+.recognition-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 15px 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.recognition-video {
+    width: 100%;
+}
+.recognition-video video {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+.recognition-info {
+    text-align: center;
+}
+.recognition-info h3 {
+    color: #333;
+    margin: 0 0 2px;
+}
+.recognition-info p {
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+}
+
 /*Career section styling */
 img.staff-image {
     width: 100%;
@@ -416,6 +529,34 @@ img.staff-image {
   .mission div {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Showcase Section (stacks on mobile) */
+  .showcase-section {
+    flex-direction: column;
+  }
+  .showcase-left {
+    padding: 30px 15px;
+  }
+  .recognition-card {
+    padding: 15px;
+    width: 100%;
+    max-width: 280px;
+    height: 350px;
+  }
+  .showcase-right {
+    padding: 30px 15px;
+  }
+
+  /* 3D Carousel */
+  .carousel-3d-wrapper {
+    height: 300px;
+  }
+  .carousel-3d-slide {
+    width: 200px;
+    height: 250px;
+    margin-left: -100px;
+    margin-top: -125px;
   }
 
   /* Contact Section */
