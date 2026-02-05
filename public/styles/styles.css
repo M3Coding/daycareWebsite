@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Poppins', sans-serif;
 }
 html a {
     color: white;
@@ -15,7 +15,7 @@ body {
   
   min-height: 100vh;
   margin: 0;
-  font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -242,13 +242,13 @@ h1{
 }
 .card1 {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
   transition: 0.3s;
-  width: 20%;
-  border-radius: 5px; 
+  width: 100%;
+  border-radius: 5px;
   background: white;
-  height: 410px;
-  overflow: auto;
+  height: auto;
+  overflow: hidden;
 }
 .card {
   /* Add shadows to create the "card" effect */
@@ -313,18 +313,26 @@ img.facebook:hover {
 /* Staff section styling */
 .staff-container {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: stretch;
+    justify-content: center;
+    gap: 24px;
     padding: 10px;
-
+    flex-wrap: wrap;
 }
 .staff-container > div {
-    overflow: auto;
+    overflow: hidden;
+    flex: 1 1 0;
+    max-width: 250px;
+    min-width: 200px;
 }
 .staff-container img {
     width: 100%;
-    height: 300px;
-    border-radius: 5px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+.staff-container > div:first-child img {
+    object-position: center top;
 }
 
 
@@ -334,10 +342,12 @@ img.facebook:hover {
 
 
 /*Career section styling */
-.staff-image {
-    background-image: url('../images/staff.png');
+img.staff-image {
     width: 100%;
-    height: 800px;
+    height: 1100px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 .main-container > .welcome > .career-text .career-text-column {
     display: flex;
@@ -416,9 +426,9 @@ img.facebook:hover {
   }
 
   .card1 {
-    width: 50%;
+    width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
   .card {
     width: 50%;
@@ -429,12 +439,19 @@ img.facebook:hover {
   /* Staff Section */
   .staff-container {
     flex-direction: column;
+    align-items: center;
     padding: 20px;
+    gap: 20px;
+  }
+
+  .staff-container > div {
+    max-width: 300px;
+    width: 100%;
   }
 
   .staff-container img {
-    height: auto;
-    max-height: 250px;
+    height: 250px;
+    object-fit: cover;
   }
 
   /* Career Section */
@@ -487,7 +504,7 @@ img.facebook:hover {
 
 
   .card1 {
-    width: 50%;
+    width: 100%;
   }
   .card {
     width: 50%;
