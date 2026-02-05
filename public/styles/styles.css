@@ -590,6 +590,7 @@ img.staff-image {
   }
 
   .staff-container > div {
+    flex: none;
     max-width: 300px;
     width: 100%;
   }
