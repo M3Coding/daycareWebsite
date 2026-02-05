@@ -545,8 +545,8 @@ img.staff-image {
   .recognition-card {
     padding: 15px;
     width: 100%;
-    max-width: 280px;
-    height: 350px;
+    max-width: 90%;
+    height: auto;
   }
   .showcase-right {
     padding: 30px 15px;
