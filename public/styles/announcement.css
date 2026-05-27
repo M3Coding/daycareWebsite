@@ -1,0 +1,65 @@
+/* ============================================
+   ANNOUNCEMENTS SECTION
+   ============================================ */
+
+
+.announcements-section {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 30px 20px;
+  align-items: flex-start;
+  color: white;
+}
+
+.announcement1-tribute,
+.announcement2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.announcement1-content,
+.announcement2-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.announcement1-image,
+.announcement2-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.announcement1-image iframe,
+.announcement2-image img {
+  max-width: 100%;
+  height: 300px;
+}
+
+.announcement1-text,
+.announcement2-text {
+  text-align: center;
+}
+
+.announcement1-text h2,
+.announcement2-text h2,
+.announcement1-text p,
+.announcement2-text p {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .announcements-section {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   END ANNOUNCEMENTS SECTION
+   ============================================ */
