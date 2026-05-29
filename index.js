@@ -1,6 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from "axios";
+import hash from
+import path from
+import session from
 
 
 const app = express();
@@ -67,6 +70,10 @@ app.get('/enrollment', (req, res) => {
 app.get('/teacherBlog', (req, res) => {
   res.render("teacherBlog.ejs", {posts: posts});
 });
+//render registration page
+app.get('/registration', (req, res) => {
+  res.render("registration.ejs")
+})
 
 //Weather Api Integration into header 
 app.post("/submit", (req, res) =>{
