@@ -11,9 +11,20 @@ import GoogleStrategy from "passport-google-oauth2"
 import 'dotenv/config';
 
 
+
 const app = express();
 const port = 3000;
 const saltRounds = 10;
+
+//connect db
+const db = new pg.Client({
+    user: process.env.PG_USER,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    password: process.env.PG_PASSWORD,
+    port: process.env.PG_PORT
+});
+db.connect();
 
 //session config
 app.use(
@@ -34,8 +45,8 @@ const yemassee = "q=29945";
 const estill = "q=29918";
 const gifford = "q=29923";
 
-//empty array for post as the db right now. 
-let posts = [];
+
+
 
 
 //server config
@@ -105,11 +116,44 @@ app.get('/registration', (req, res) => {
   res.render("registration.ejs")
 })
 
-//Post routes
+//Registration cconfiguration and routes
+app.get('/registration', (req, res) =>{
+  res.render("registration.js");
+})
 app.post('/registration', async (req, res) => {
   try{
-    const registrationUserInput = req.body;
-    console.log(req.body);
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    console.log(fname, lname, email, password);
+    try{
+      const checkResult = await db.query("SELECT * FROM daycareusers WHERE email = $1", [email,
+      ]);
+
+      if (checkResult.rows.length > 0) {
+        req.redirect("/registration");
+      }else {
+        bcrypt.hash(password, saltRounds, async (err, hash) => {
+          if (err) {
+            console.error("Error hashing password:", err);
+          }else {
+            const result = await db.query( "INSERT INTO daycareusers (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING *", [fname, lname, email, hash]);
+            const user = result.rows[0];
+            console.log(user);
+            req.login(user, (err) => {
+              console.log("success");
+              res.redirect("/")
+            });
+          }
+        });
+      }
+
+    }catch (err) {
+      console.log(err);
+
+    }
 
   } catch (error) {
     console.error("Error fetching registration information", error.message)
