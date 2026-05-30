@@ -1,23 +1,22 @@
 <div class="registrationPage" id="registrationPage" name="registrationPage">
     <div class="registrationContainer" id="registrationContainer" name="registrationContainer">
         <div class="registrationContent" id="registrationContent" name="registrationContent">
-            <form action="/" target="_blank" method="get">
-                <label for="fname">First name: </label>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="lname">Last name: </label>
-                <input type="text" id="lname" name="lname"><br>
-                <label for="email">Email: </label>
-                <input type="text" id="email" name="email"><br>
-                <label for="password">Password: </label>
-                <input type="text" id="password" name="password"><br>
+            <form action="/registration" target="_blank" method="post" id="registration-form">
+                <input type="text" id="fname" name="fname" placeholder="First Name" required><br>
                 
+                <input type="text" id="lname" name="lname" placeholder="Last Name" required><br>
+                
+                <input type="text" id="email" name="email" placeholder="Email" required><br>
+                
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+                <input type="submit">
             </form>
             
 
         </div>
-        <div class="registrationSubmission" id="registrationSubmission" name="registrationSubmission">
-            <button type="submit">Submit</button>
-            <p><i>This information will be stored!</i></p>
+        <div class="registrationinfo" id="registrationinfo" name="registrationinfo" >
+            
+            <p><i>This information will be securely stored!</i></p>
 
         </div>
 

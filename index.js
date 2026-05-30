@@ -1,29 +1,41 @@
+//module dependencies
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from "axios";
-import hash from
-import path from
-import session from
+import bcrypt from "bcrypt";
+import session from 'express-session';
+import 'dotenv/config';
 
 
 const app = express();
 const port = 3000;
+
+//Weather API-API Key-need to put api key in a .env file
 const weather_API = "https://api.weatherapi.com/v1/forecast.json?";
-const API_Key = "&key=4318854af23c46e09aa44845252907"
+const API_Key = process.env.WEATHER_API;
 
 const  varnville = "q=29944";
 const hampton = "q=29924";
 const yemassee = "q=29945";
 const estill = "q=29918";
 const gifford = "q=29923";
+
+//empty array for post as the db right now. 
 let posts = [];
 
+
+//server config
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 app.set('views', './views'); 
+
+//middleware
+
+
 //render home page
 app.get('/', async (req, res) => {
   try {
@@ -75,7 +87,21 @@ app.get('/registration', (req, res) => {
   res.render("registration.ejs")
 })
 
-//Weather Api Integration into header 
+//Post routes
+app.post('/registration', async (req, res) => {
+  try{
+    const registrationUserInput = req.body;
+    console.log(req.body);
+
+  } catch (error) {
+    console.error("Error fetching registration information", error.message)
+    res.render("registration.ejs", {error: "Unable to get registration information"} )
+  }
+
+  
+})
+
+//Blog post 
 app.post("/submit", (req, res) =>{
     var today = new Date()
     const newPost= {
