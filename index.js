@@ -4,11 +4,25 @@ import bodyParser from 'body-parser';
 import axios from "axios";
 import bcrypt from "bcrypt";
 import session from 'express-session';
+import pg from "pg";
+import passport from 'passport';
+import { Strategy } from 'passport-local'
+import GoogleStrategy from "passport-google-oauth2"
 import 'dotenv/config';
 
 
 const app = express();
 const port = 3000;
+const saltRounds = 10;
+
+//session config
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUnitialized:true,
+  })
+);
 
 //Weather API-API Key-need to put api key in a .env file
 const weather_API = "https://api.weatherapi.com/v1/forecast.json?";
@@ -32,6 +46,10 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 app.set('views', './views'); 
+
+//passport login config
+app.use(passport.initialize());
+app.use(passport.session())
 
 //middleware
 
@@ -98,7 +116,6 @@ app.post('/registration', async (req, res) => {
     res.render("registration.ejs", {error: "Unable to get registration information"} )
   }
 
-  
 })
 
 //Blog post 
