@@ -118,7 +118,7 @@ app.get('/registration', (req, res) => {
 
 //Registration cconfiguration and routes
 app.get('/registration', (req, res) =>{
-  res.render("registration.js");
+  res.render("registration.ejs");
 })
 app.post('/registration', async (req, res) => {
   try{
@@ -160,6 +160,11 @@ app.post('/registration', async (req, res) => {
     res.render("registration.ejs", {error: "Unable to get registration information"} )
   }
 
+})
+
+//Login 
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
 })
 
 //Blog post 
