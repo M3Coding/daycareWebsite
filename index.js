@@ -109,17 +109,16 @@ app.get('/enrollment', (req, res) => {
 });
 //render teacher blog page
 app.get('/teacherBlog', (req, res) => {
+  console.log(req.user)
   res.render("teacherBlog.ejs", {posts: posts});
 });
-//render registration page
-app.get('/registration', (req, res) => {
-  res.render("registration.ejs")
-})
+
 
 //Registration cconfiguration and routes
 app.get('/registration', (req, res) =>{
   res.render("registration.ejs");
 })
+
 app.post('/registration', async (req, res) => {
   try{
     const fname = req.body.fname;
@@ -167,6 +166,48 @@ app.get('/login', (req, res) => {
   res.render('login.ejs')
 })
 
+//logout 
+app.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if(err) {
+      return next(err);
+
+    }
+    res.redirect("/");
+  });
+});
+
+//Login check 
+passport.use("local", 
+  new Strategy(async function verify(username, password, cb) {
+    try{
+      const result = await db.query("SELECT * FROM daycareusers WHERE email = $1", [email,]);
+      if (result.rows.length > 0) {
+        const user =result.rows[0];
+        const storedHashedPassword = user.password;
+        bcrypt.compare(password, storedHashedPassword, (err, valid) => {
+          if(err) {
+            //Error with password check
+            console.error("Error comparing passwords:", err);
+            return cb(err);
+          }else {
+            if(valid) {
+              //Passed password check
+              return cb(null, user);
+            } else {
+              //Failed password check 
+              return cb(null, false);
+            }
+          }
+        });
+      } else {
+        return cb("User not found")
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  })
+);
 //Blog post 
 app.post("/submit", (req, res) =>{
     var today = new Date()
@@ -200,6 +241,14 @@ app.delete("/update", (req, res) => {
   res.sendStatus(200);
     
 })//this delete block of code req the id of the post. The array is indexed to find that id and if it matches the number then it deletes with the splice function.
+
+//Passport User Authentication-maintain session
+passport.serializeUser((user, cb) => {
+  cb(null, user);
+});
+passport.deserializeUser((user, cb) => {
+  cb(null, user)
+})
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
