@@ -1,426 +1,438 @@
+/* ── Global ──────────────────────────────────────────────── */
 html a {
-    color: white;
-}
-.header-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0;
-    width: 100%;
-    background-color: white;
+  color: white;
 }
 
+body {
+  background-color: #F0F2F5;
+}
+
+/* ── Header / Navbar ─────────────────────────────────────── */
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+}
 
 header > div > img {
-    width: 100px;
-    height: auto;
+  width: 100px;
+  height: auto;
 }
 
 .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
+
 .navbar-container div {
-    background: linear-gradient(to left, #6a11cb, #2575fc) ;
-    
+  background: linear-gradient(to left, #6a11cb, #2575fc);
 }
+
 .navbar-container > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0px 20px 0px;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Teacher Blog section styling */
-
-h1, h3{
-    background: linear-gradient(to left, #6a11cb, #2575fc);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* ── Layout ──────────────────────────────────────────────── */
 .blog-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  padding: 20px;
-  gap: 20px;
-  
-}
-.blog-container>.content .work-session {
-    width: 100%;
-    height: 700px;
-    background-image: url('/images/worksession.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    border-radius: 5px;
-    
-}
-input {
-  padding: 10px;
-  border: lightgray solid 2px;
-  border-right: none;
-  border-left: none;
-  border-radius: 15px;
-
-}
-textarea {
-  border: lightgrey solid 2px;
-  border-right: none;
-  border-left: none;
-  border-radius: 15px;
-
-}
-input {
-  margin-bottom: 20px;
-  margin-right: 20px;
+  padding: 24px 16px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.content hr {
-  border: gray;
-  border-radius: 15px;
-  border-style: inset;
-  border-width: 3px;
+/* Center feed */
+.content {
+  flex: 1;
+  max-width: 620px;
+  padding: 0;
+}
+
+/* ── Cover / Hero image ──────────────────────────────────── */
+.blog-container > .content .work-session {
+  width: 100%;
+  height: 280px;
+  background-image: url('/images/worksession.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Page heading ────────────────────────────────────────── */
+h1, h3 {
+  background: linear-gradient(to left, #6a11cb, #2575fc);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .content > h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #1C3D56;
-  
-}
-h3 {
-    color: #1C3D56;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
 }
 
-/* Sidebars */
+small {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #65676B;
+}
+
+/* ── Compose card ────────────────────────────────────────── */
+#blogForm {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+#blogForm .blogTitle {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #CED0D4;
+  border-radius: 24px;
+  background: #F0F2F5;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+#blogForm .blogTitle:focus {
+  border-color: #2575fc;
+  background: #fff;
+}
+
+#blogForm textarea {
+  width: 100%;
+  height: 90px;
+  padding: 12px 16px;
+  border: 1px solid #CED0D4;
+  border-radius: 12px;
+  background: #F0F2F5;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  transition: border 0.2s;
+}
+
+#blogForm textarea:focus {
+  border-color: #2575fc;
+  background: #fff;
+}
+
+#blogForm hr {
+  border: none;
+  border-top: 1px solid #E4E6EB;
+  margin: 12px 0;
+}
+
+.postSubmit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  -webkit-appearance: none;
+}
+
+.postSubmit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.postSubmit:active {
+  transform: translateY(0);
+}
+
+/* ── Posts feed ──────────────────────────────────────────── */
+#blogPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 4px;
+  list-style: none;
+  padding: 0;
+}
+
+.post {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: box-shadow 0.2s;
+}
+
+.post:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+}
+
+.post h3 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+
+.post .content {
+  font-size: 0.95rem;
+  color: #1C1E21;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.post p {
+  font-size: 0.82rem;
+  color: #65676B;
+  margin: 2px 0;
+}
+
+.post hr {
+  border: none;
+  border-top: 1px solid #E4E6EB;
+  margin: 12px 0 8px;
+}
+
+/* ── Post action buttons ─────────────────────────────────── */
+.edit-btn,
+.delete-btn,
+.update-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #F0F2F5;
+  color: #1C1E21;
+  transition: background 0.15s, transform 0.1s;
+  -webkit-appearance: none;
+  margin-right: 6px;
+}
+
+.edit-btn:hover {
+  background: #E4E6EB;
+  transform: translateY(-1px);
+}
+
+.delete-btn:hover {
+  background: #FDECEA;
+  color: #c0392b;
+  transform: translateY(-1px);
+}
+
+.update-btn:hover {
+  background: #E8F5E9;
+  color: #27ae60;
+  transform: translateY(-1px);
+}
+
+.post .edit-box {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #CED0D4;
+  border-radius: 10px;
+  background: #F0F2F5;
+  font-size: 0.9rem;
+  resize: none;
+  margin-bottom: 8px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  padding: 15px;
-  text-align: left;
-  color: #000;
+  width: 280px;
+  padding: 0;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 20px;
+  height: auto;
 }
+
 .right {
+  border: none;
+}
 
-  border-left-width: 3px;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
-  border-left-style: inset;
-
+.sidebar .top-sidebar {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+  height: auto;
 }
 
 .sidebar > div {
-    height: 800px;
-    width: 100%;
+  height: auto;
+  width: 100%;
 }
 
 .sidebar ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  
 }
 
 .sidebar li {
   margin-bottom: 10px;
 }
+
 .sidebar a {
-    color: #1C3D56;
-} 
-
-/* Center Content */
-.content {
-  flex: 1;
-  padding: 15px;
-  
-  
+  color: #1C3D56;
 }
 
-/* Blog form */
-small {
-    display: block;
-    text-align: center;
+.sidebar h3 {
+  margin-top: 0;
+  font-size: 1rem;
 }
-textarea {
+
+.sidebar p {
+  font-size: 0.85rem;
+  color: #65676B;
+  line-height: 1.5;
+}
+
+.sidebar iframe {
   width: 100%;
-  height: 100px;
-  padding: 10px;
-  margin-bottom: 10px;
-  resize: none;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 12px;
 }
 
-
-button {
-  padding: 10px 20px;
-  list-style: none;
-}
-.postSubmit {
-    display: inline;
-    padding: 0;
-    border: 0;
-    margin-left: 2%;
-    font: inherit;
-    font-weight: bold;
-    color: #1C3D56;
-    cursor: pointer;
-    background: transparent;
-    color: currentColor;
-    -webkit-appearance: none;
-}
-
-#blogPosts {
-    display: flex;
-    flex-direction: column;
-  margin-top: 20px;
-  list-style: none;
-}
-.blog-container  .blogPosts  div {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.blog-post {
-  border-top: 1px solid #ddd;
-  padding: 10px 0;
-}
-
-.edit-btn {
-    display: inline;
-    padding: 0;
-    border: 0;
-    margin-left: 2%;
-    font: inherit;
-    cursor: pointer;
-    background: transparent;
-    color: currentColor;
-    -webkit-appearance: none;
-}
-
-
-.delete-btn {
-    
-    display: inline;
-    padding: 0;
-    padding-left: 20px;
-    border: 0;
-    font: inherit;
-    cursor: pointer;
-    background: transparent;
-    color: currentColor;
-    -webkit-appearance: none;
-}
-
-
-.update-btn {
-    
-    display: inline;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    cursor: pointer;
-    background: transparent;
-    color: currentColor;
-    -webkit-appearance: none;
-
-}
-
-/* Footer styling */
-.footer-div{
-    background: white;
-}
-footer {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-img.facebook {
-  width: 50px;          /* adjust size */
-  height: 50px;
-  margin-left: 10px;    /* optional spacing */
-  transition: transform 0.3s ease;
-}
-
-img.facebook:hover {
-  transform: scale(1.1); /* subtle zoom on hover */
-}
-
-.album{
-    background: linear-gradient(to left, #6a11cb, #2575fc);
-}
-
-/*Form styling */
-#feedback {
-  display: none; /* Initially hide the modal */
-  /* Other modal styling */
-  position:fixed;
-  z-index: 1;
-  left: 0;
-  top: 15%;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: regb(0, 0, 0,);
-  background-color: rgba(0, 0, 0, , 0.4);
-  border-radius: 5px;
-}
-.feedback-container > .container {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    border-radius: 5px;
-}
-input[type="text"],
-input[type="email"],
-textarea {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-
-.feedback-container > .container > span {
-    display: flex;
-    justify-content: flex-end;
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-span:hover {
-    cursor: pointer;
-}
-
-/*Enrollment form styling */
-#enrollForm {
-  display: none; /* Initially hide the modal */
-  /* Other modal styling */
-  position:fixed;
+/* ── Modals — feedback / contact / enroll ────────────────── */
+#feedback,
+#enrollForm,
+#contactForm {
+  display: none;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: regb(0, 0, 0,);
-  background-color: rgba(0, 0, 0, , 0.4);
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.45);
 }
-.enroll-container > .container {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
-    border-radius: 5px;
+
+#feedback { top: 15%; }
+
+.feedback-container > .container,
+.enroll-container > .container,
+.contact-container > .container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 12px;
+  width: 50%;
 }
+
+.enroll-container > .container,
+.contact-container > .container {
+  width: 70%;
+}
+
+.feedback-container > .container > span,
+.enroll-container > .container > span,
+.contact-container > .container > span {
+  display: flex;
+  justify-content: flex-end;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+span:hover {
+  cursor: pointer;
+}
+
+/* ── Form inputs (shared) ────────────────────────────────── */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
 textarea {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-
-.enroll-container > .container > span {
-    display: flex;
-    justify-content: flex-end;
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-span:hover {
-    cursor: pointer;
-}
-
-/* Contact form styling */
-#contactForm {
-  display: none; /* Initially hide the modal */
-  /* Other modal styling */
-  position:fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
+  display: inline-block;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: regb(0, 0, 0,);
-  background-color: rgba(0, 0, 0, , 0.4);
-  border-radius: 5px;
-}
-.contact-container > .container {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
-    border-radius: 5px;
-}
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    display: inline-block;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 8px;
 }
 
-.contact-container > .container > span {
-    display: flex;
-    justify-content: flex-end;
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-span:hover {
-    cursor: pointer;
+/* ── Footer ──────────────────────────────────────────────── */
+.footer-div {
+  background: white;
 }
 
-/* Tablet and smaller (stack layout) */
+footer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+img.facebook {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+img.facebook:hover {
+  transform: scale(1.1);
+}
+
+.album {
+  background: linear-gradient(to left, #6a11cb, #2575fc);
+}
+
+/* ── Responsive — Tablet ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
 @media (max-width: 768px) {
-
-  /* Header / Navbar */
   .header-container {
     flex-direction: column;
     padding: 10px;
@@ -437,30 +449,24 @@ span:hover {
     width: 80px;
   }
 
-  /* Blog Layout */
   .blog-container {
     flex-direction: column;
-    padding: 10px;
+    padding: 12px;
+    align-items: center;
   }
 
   .content {
     width: 100%;
-    padding: 10px;
+    max-width: 100%;
   }
 
   .sidebar {
     width: 100%;
-    height: auto;
     position: relative;
-    border: none;
-    margin-top: 20px;
+    top: 0;
+    margin-top: 8px;
   }
 
-  .sidebar > div {
-    height: auto;
-  }
-
-  /* Forms */
   .feedback-container > .container,
   .contact-container > .container,
   .enroll-container > .container {
@@ -468,56 +474,29 @@ span:hover {
     padding: 15px;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="date"],
-  textarea {
-    font-size: 1em;
-    padding: 10px;
-  }
-
-  input[type=submit],
-  button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1em;
-    margin: 10px 0;
-  }
-
-  .feedback-container > .container > span,
-  .contact-container > .container > span,
-  .enroll-container > .container > span {
-    font-size: 24px;
-  }
-
-  /* Blog Post Adjustments */
-  .blog-container>.content .work-session {
-    height: 300px;
-    background-size: contain;
-    background-position: center;
+  .blog-container > .content .work-session {
+    height: 200px;
   }
 }
 
-/* Small Phones (very narrow screens) */
+/* ── Responsive — Small phones ───────────────────────────── */
 @media (max-width: 480px) {
-
   header > div > img {
     width: 60px;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-align: center;
   }
 
   h3 {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
   }
 
-  .blog-container>.content .work-session {
-    height: 200px;
+  .blog-container > .content .work-session {
+    height: 150px;
   }
 
   .feedback-container > .container,
@@ -536,7 +515,6 @@ span:hover {
     padding: 8px;
   }
 
-  input[type=submit],
   button {
     font-size: 0.9em;
     padding: 10px;

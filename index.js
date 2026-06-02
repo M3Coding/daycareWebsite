@@ -15,6 +15,7 @@ import 'dotenv/config';
 const app = express();
 const port = 3000;
 const saltRounds = 10;
+const posts =[];
 
 //connect db
 const db = new pg.Client({
@@ -103,6 +104,21 @@ app.get('/career', async (req, res) => {
 }
   
 });
+//Login 
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
+})
+
+//logout 
+app.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if(err) {
+      return next(err);
+
+    }
+    res.redirect("/");
+  });
+});
 //render enrollement page
 app.get('/enrollment', (req, res) => {
   res.render("enrollment.ejs");
@@ -110,7 +126,11 @@ app.get('/enrollment', (req, res) => {
 //render teacher blog page
 app.get('/teacherBlog', (req, res) => {
   console.log(req.user)
-  res.render("teacherBlog.ejs", {posts: posts});
+  if(req.isAuthenticated()) {
+    res.render("teacherBlog.ejs",{posts: posts})
+  }else {
+    res.redirect('/login')
+  }
 });
 
 
@@ -161,27 +181,19 @@ app.post('/registration', async (req, res) => {
 
 })
 
-//Login 
-app.get('/login', (req, res) => {
-  res.render('login.ejs')
-})
-
-//logout 
-app.get("/logout", (req, res) => {
-  req.logout(function (err) {
-    if(err) {
-      return next(err);
-
-    }
-    res.redirect("/");
-  });
-});
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/teacherBlog",
+    failureRedirect: "/login",
+  })
+);
 
 //Login check 
 passport.use("local", 
   new Strategy(async function verify(username, password, cb) {
     try{
-      const result = await db.query("SELECT * FROM daycareusers WHERE email = $1", [email,]);
+      const result = await db.query("SELECT * FROM daycareusers WHERE email = $1", [username,]);
       if (result.rows.length > 0) {
         const user =result.rows[0];
         const storedHashedPassword = user.password;
