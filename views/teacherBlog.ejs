@@ -19,6 +19,7 @@
         <input type="text" class="blogTitle" id="blogTitle" name="blogTitle" placeholder="Achievement Title...">
 
       <textarea id="blogInput" placeholder="Bright Minds, Big Moments..." name="userPost"></textarea>
+      <input type="file" id="post-graphic" name="post-graphic" class="post-graphic" accept=".doc, .docx, .xml, .pdf, image/*, video/*, audio/*">
       <button class="postSubmit" type="submit" value="Submit">👉🏽Mic Drop🎤👈🏽</button>
       <hr>
       
@@ -31,7 +32,8 @@
             <div class="post" data-id="<%= post.id %>" >
               <h3><%=post.blogTitle%></h3>
     
-                <p class="content" ><%= post.content %></p>
+              <image></image>  
+              <p class="content" ><%= post.content %></p>
                 <p>Posted by: <%= post.userName %></p><p><%= post.today %></p>
                 <textarea  class="edit-box"  style="display:none;"></textarea>
                 <button class="edit-btn" type="button">📝</button>

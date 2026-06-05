@@ -184,7 +184,7 @@ app.post('/registration', async (req, res) => {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/teacherBlog",
+    successRedirect: "/",
     failureRedirect: "/login",
   })
 );
@@ -226,6 +226,7 @@ app.post("/submit", (req, res) =>{
     const newPost= {
         id: Date.now(),
         content: req.body.userPost,
+        graphic: req.body.post-graphic,
         today: today,
         blogTitle: req.body.blogTitle,
         userName:req.body.userName
@@ -236,7 +237,7 @@ app.post("/submit", (req, res) =>{
     res.redirect("/teacherBlog");
 })
 app.post("/update", (req, res) => {
-  const { id, content } = req.body;
+  const { id, content, graphic } = req.body;
   const post = posts.find(p => p.id == id);
   if (post) {
     post.content = content;
