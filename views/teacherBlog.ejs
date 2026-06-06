@@ -15,11 +15,11 @@
     <div class="work-session"></div>
     <h1>Look What We Can Do!</h1>
     <p class="instruction"><small style="color: #4F4F4F ;">*Let's Celebrate Greatness!*</small></p>
-    <form id="blogForm" action="/submit" method="POST">
+    <form id="blogForm" action="/submit" method="POST" enctype="multipart/form-data">
         <input type="text" class="blogTitle" id="blogTitle" name="blogTitle" placeholder="Achievement Title...">
 
       <textarea id="blogInput" placeholder="Bright Minds, Big Moments..." name="userPost"></textarea>
-      <input type="file" id="post-graphic" name="post-graphic" class="post-graphic" accept=".doc, .docx, .xml, .pdf, image/*, video/*, audio/*">
+      <input type="file" id="postGraphic" name="postGraphic" class="postGraphic" accept=".doc, .docx, .xml, .pdf, image/*, video/*, audio/*">
       <button class="postSubmit" type="submit" value="Submit">👉🏽Mic Drop🎤👈🏽</button>
       <hr>
       
@@ -32,7 +32,7 @@
             <div class="post" data-id="<%= post.id %>" >
               <h3><%=post.blogTitle%></h3>
     
-              <image></image>  
+              <img src='<%= image %>' class="content"/>  
               <p class="content" ><%= post.content %></p>
                 <p>Posted by: <%= post.userName %></p><p><%= post.today %></p>
                 <textarea  class="edit-box"  style="display:none;"></textarea>

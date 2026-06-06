@@ -9,6 +9,8 @@ import passport from 'passport';
 import { Strategy } from 'passport-local'
 import GoogleStrategy from "passport-google-oauth2"
 import 'dotenv/config';
+import multer from "multer";
+
 
 
 
@@ -16,6 +18,9 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 const posts =[];
+const upload = multer({
+  dest: '/images'
+});
 
 //connect db
 const db = new pg.Client({
@@ -221,23 +226,33 @@ passport.use("local",
   })
 );
 //Blog post 
+const graphic =[];
+app.post("/submit", upload.single('postGraphic'), (req, res) => {
+  const graphics = req.file;
+  graphic.push(graphics);
+  const image = graphic[0].originalname;
+  console.log(image);
+  res.redirect("/teacherBlog")
+
+  //store the file and then query the file.
+})
 app.post("/submit", (req, res) =>{
     var today = new Date()
     const newPost= {
         id: Date.now(),
         content: req.body.userPost,
-        graphic: req.body.post-graphic,
         today: today,
         blogTitle: req.body.blogTitle,
         userName:req.body.userName
 
         };
         posts.push(newPost);
+        console.log(newPost); 
     
     res.redirect("/teacherBlog");
 })
 app.post("/update", (req, res) => {
-  const { id, content, graphic } = req.body;
+  const { id, content} = req.body;
   const post = posts.find(p => p.id == id);
   if (post) {
     post.content = content;
