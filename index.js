@@ -18,6 +18,7 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 const posts =[];
+const graphic =[];
 const upload = multer({
   dest: '/images'
 });
@@ -132,7 +133,7 @@ app.get('/enrollment', (req, res) => {
 app.get('/teacherBlog', (req, res) => {
   console.log(req.user)
   if(req.isAuthenticated()) {
-    res.render("teacherBlog.ejs",{posts: posts})
+    res.render("teacherBlog.ejs",{posts: posts, graphic: graphic[0]})
   }else {
     res.redirect('/login')
   }
@@ -226,16 +227,18 @@ passport.use("local",
   })
 );
 //Blog post 
-const graphic =[];
+
 app.post("/submit", upload.single('postGraphic'), (req, res) => {
   const graphics = req.file;
-  graphic.push(graphics);
-  const image = graphic[0].originalname;
-  console.log(image);
+  
+  const image = graphics.originalname;
+  graphic.push(image);
+  
   res.redirect("/teacherBlog")
 
   //store the file and then query the file.
 })
+
 app.post("/submit", (req, res) =>{
     var today = new Date()
     const newPost= {
