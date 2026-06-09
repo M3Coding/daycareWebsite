@@ -28,15 +28,16 @@
 
 .announcement1-image,
 .announcement2-image {
-  display: flex;
-  justify-content: center;
   width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .announcement1-image iframe,
-.announcement2-image img {
-  max-width: 100%;
-  height: 300px;
+.announcement2-image iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
 }
 
 .announcement1-text,
