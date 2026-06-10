@@ -34,10 +34,28 @@ header > div > img {
     height: auto;
 }
 
+.navbar2 {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.navbar-spacer {
+    flex: 1;
+}
+
 .navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
+}
+
+.navbar-auth-links {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    padding-right: 30px;
 }
 .navbar-container div {
     background: linear-gradient(to left, #6a11cb, #2575fc) ;
@@ -509,6 +527,17 @@ img.staff-image {
     flex-direction: column;
     gap: 10px;
     padding: 0;
+  }
+
+  .navbar-auth-links {
+    flex: unset;
+    justify-content: center;
+    padding-right: 0;
+    gap: 10px;
+  }
+
+  .navbar-spacer {
+    display: none;
   }
 
   .navbar-container > div {
