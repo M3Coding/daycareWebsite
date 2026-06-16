@@ -32,9 +32,10 @@
             <div class="post" data-id="<%= post.id %>" >
               <h3><%=post.blogTitle%></h3>
     
-              <img src='/images/<%= post.images %>' class="content"/>  
+              
               <p class="content" ><%= post.content %></p>
                 <p>Posted by: <%= post.userName %></p><p><%= post.today %></p>
+                <img src='/images/<%= post.images %>' class="content"/>  
                 <textarea  class="edit-box"  style="display:none;"></textarea>
                 <button class="edit-btn" type="button">📝</button>
                 <button class="delete-btn" type="" value="delete">❌</button>
