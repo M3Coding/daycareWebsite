@@ -10,6 +10,9 @@ import { Strategy } from 'passport-local'
 import GoogleStrategy from "passport-google-oauth2"
 import 'dotenv/config';
 import multer from "multer";
+import path from 'path';
+
+
 
 
 
@@ -17,11 +20,7 @@ import multer from "multer";
 const app = express();
 const port = 3000;
 const saltRounds = 10;
-const posts =[];
-const graphic =[];
-const upload = multer({
-  dest: '/images'
-});
+let posts = []
 
 //connect db
 const db = new pg.Client({
@@ -69,7 +68,17 @@ app.set('views', './views');
 app.use(passport.initialize());
 app.use(passport.session())
 
-//middleware
+//Multer Storage Config 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images');
+  },
+  filename: function (req, file, cb) {
+    const uniqueName = Date.now() + path.extname(file.originalname);
+    cb(null, uniqueName);
+  }
+});
+const upload = multer({storage});
 
 
 //render home page
@@ -133,7 +142,8 @@ app.get('/enrollment', (req, res) => {
 app.get('/teacherBlog', (req, res) => {
   console.log(req.user)
   if(req.isAuthenticated()) {
-    res.render("teacherBlog.ejs",{posts: posts, graphic: graphic[0]})
+    console.log(posts)
+    res.render("teacherBlog.ejs",{posts: posts})
   }else {
     res.redirect('/login')
   }
@@ -229,31 +239,28 @@ passport.use("local",
 //Blog post 
 
 app.post("/submit", upload.single('postGraphic'), (req, res) => {
-  const graphics = req.file;
+  const graphic = req.file.filename;
   
-  const image = graphics.originalname;
-  graphic.push(image);
   
-  res.redirect("/teacherBlog")
-
-  //store the file and then query the file.
-})
-
-app.post("/submit", (req, res) =>{
-    var today = new Date()
+   var today = new Date()
     const newPost= {
         id: Date.now(),
         content: req.body.userPost,
         today: today,
         blogTitle: req.body.blogTitle,
-        userName:req.body.userName
+        userName:req.body.userName,
+        images: graphic
 
         };
         posts.push(newPost);
         console.log(newPost); 
     
     res.redirect("/teacherBlog");
+
+  //store the file and then query the file.
 })
+
+
 app.post("/update", (req, res) => {
   const { id, content} = req.body;
   const post = posts.find(p => p.id == id);

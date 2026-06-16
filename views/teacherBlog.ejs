@@ -28,11 +28,11 @@
     <div id="blogPosts" class="recentPosts">
     
         <% if (posts && posts.length > 0) {%>
-        <% posts.forEach(function(post, graphic) {%> 
+        <% posts.forEach(function(post) {%> 
             <div class="post" data-id="<%= post.id %>" >
               <h3><%=post.blogTitle%></h3>
     
-              <img src='/images/<%= graphic %>' class="content"/>  
+              <img src='/images/<%= post.images %>' class="content"/>  
               <p class="content" ><%= post.content %></p>
                 <p>Posted by: <%= post.userName %></p><p><%= post.today %></p>
                 <textarea  class="edit-box"  style="display:none;"></textarea>
