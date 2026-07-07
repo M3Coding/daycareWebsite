@@ -1,10 +1,12 @@
 .announcements-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 500px));
   grid-template-rows: auto auto auto;
+  justify-content: center;
   column-gap: 30px;
   row-gap: 15px;
   padding: 30px 20px;
+  margin: 0 auto;
   color: white;
 }
 
