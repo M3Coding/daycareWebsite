@@ -101,12 +101,19 @@ Welcome back, little scholars! We missed you! 💙💛
       </div>
     </div>
     <div class="showcase-right">
-      <h2>Gallery</h2>
+      <h2>Welcome to 4K/Pre-K</h2>
       <div class="carousel-3d-wrapper">
         <div class="carousel-3d-track">
-          <div class="carousel-3d-slide"><img src="/images/boys.jpg" alt=""></div>
-          <div class="carousel-3d-slide"><img src="/images/painting.jpg" alt=""></div>
-          <div class="carousel-3d-slide"><img src="/images/halloween.jpg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk1.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk2.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk3.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk4.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk5.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk6.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk7.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk8.jpeg" alt=""></div>
+          <div class="carousel-3d-slide"><img src="/images/pk9.jpeg" alt=""></div>
+          
         </div>
         <button class="carousel-3d-btn prev">&lt;</button>
         <button class="carousel-3d-btn next">&gt;</button>
@@ -168,30 +175,40 @@ Welcome back, little scholars! We missed you! 💙💛
 
   <script>
     function init3DCarousel(wrapper) {
-      const track = wrapper.querySelector('.carousel-3d-track');
       const slides = wrapper.querySelectorAll('.carousel-3d-slide');
-      let currentIndex = 0;
       const total = slides.length;
-      const angle = 360 / total;
+      let currentIndex = 0;
+      slides[0].classList.add('active');
 
-      slides.forEach((slide, i) => {
-        slide.style.transform = `rotateY(${i * angle}deg) translateZ(350px)`;
-      });
+      function goTo(newIndex, direction) {
+        newIndex = (newIndex + total) % total;
+        if (newIndex === currentIndex) return;
+        const oldSlide = slides[currentIndex];
+        const newSlide = slides[newIndex];
 
-      function rotateTo(index) {
-        track.style.transform = `rotateY(${-index * angle}deg)`;
+        newSlide.style.transition = 'none';
+        newSlide.style.transform = `translateX(${direction * 100}%)`;
+        newSlide.style.opacity = '0';
+        void newSlide.offsetWidth;
+        newSlide.style.transition = '';
+
+        requestAnimationFrame(() => {
+          oldSlide.classList.remove('active');
+          oldSlide.style.transform = `translateX(${-direction * 100}%)`;
+          oldSlide.style.opacity = '0';
+
+          newSlide.classList.add('active');
+          newSlide.style.transform = 'translateX(0)';
+          newSlide.style.opacity = '1';
+        });
+
+        currentIndex = newIndex;
       }
 
-      function rotate(dir) {
-        currentIndex += dir;
-        rotateTo(currentIndex);
-      }
+      wrapper.querySelector('.carousel-3d-btn.prev').addEventListener('click', () => goTo(currentIndex - 1, -1));
+      wrapper.querySelector('.carousel-3d-btn.next').addEventListener('click', () => goTo(currentIndex + 1, 1));
 
-      wrapper.querySelector('.carousel-3d-btn.prev').addEventListener('click', () => rotate(-1));
-      wrapper.querySelector('.carousel-3d-btn.next').addEventListener('click', () => rotate(1));
-
-      rotateTo(0);
-      setInterval(() => rotate(1), 4000);
+      setInterval(() => goTo(currentIndex + 1, 1), 4000);
     }
 
     document.querySelectorAll('.carousel-3d-wrapper').forEach(wrapper => init3DCarousel(wrapper));

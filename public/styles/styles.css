@@ -229,16 +229,24 @@ h1{
 }
 .carousel-3d-slide {
     position: absolute;
-    width: 340px;
-    height: 420px;
+    width: 515px;
+    height: 636px;
     left: 50%;
     top: 50%;
-    margin-left: -170px;
-    margin-top: -210px;
-    backface-visibility: hidden;
+    margin-left: -257.5px;
+    margin-top: -318px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(0);
+    z-index: 1;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.carousel-3d-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
 }
 .carousel-3d-slide img {
     width: 100%;
@@ -594,10 +602,10 @@ img.staff-image {
     height: 300px;
   }
   .carousel-3d-slide {
-    width: 200px;
-    height: 250px;
-    margin-left: -100px;
-    margin-top: -125px;
+    width: 303px;
+    height: 379px;
+    margin-left: -151.5px;
+    margin-top: -189.5px;
   }
 
   /* Contact Section */
