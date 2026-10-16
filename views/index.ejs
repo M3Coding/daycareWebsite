@@ -31,36 +31,36 @@
     </div>
   </div>
 
-  <!-- Holiday Event Section  -->
-   <section class="announcements-section">
-    <div class="announcement1-tribute">
-    <div class="announcement1-content">
-       <h2>🎒📚 WELCOME BACK TO SCHOOL! 🚌✨</h2>
-      <div class="announcement1-image">
-       
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/mujrVVqKSgE?list=RDmujrVVqKSgE" title="&quot;Welcome Back to School&quot; Song  / Children&#39;s Songs for Learning and Fun" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
+  <!-- Announcements: circular video carousel -->
+  <section class="announcements-section">
+    <div class="video-carousel-title" aria-live="polite"></div>
+
+    <div class="video-carousel">
+      <div class="video-carousel-track">
+        <!-- Each slide: set data-title / data-desc, then embed a YouTube iframe (keep enablejsapi=1) or a <video> -->
+        <div class="video-carousel-slide"
+             data-title="🎒📚 WELCOME BACK TO SCHOOL! 🚌✨"
+             data-desc="A brand-new school year is here, and we are SO excited to welcome all of our Daycare & Pre-K little learners back! 💕🖍️">
+          <iframe src="https://www.youtube.com/embed/mujrVVqKSgE?enablejsapi=1" title="Welcome Back to School Song" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-carousel-slide"
+             data-title="Fire Prevention Week"
+             data-desc="A week dedicated to raising awareness about fire safety, educating people on fire hazards, and promoting preventive measures to protect lives, property, and communities.">
+          <iframe src="https://www.youtube.com/embed/I7X5sRFUSXk" title="Phoebe &amp; Jay FULL EPISODE | Fire Drill 🧯 | PBS KIDS" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-carousel-slide"
+             data-title="Read Across America"
+             data-desc="A celebration that promotes reading, encourages a love of books, and inspires students to develop strong literacy skills through engaging reading activities and storytelling.">
+          <iframe src="https://www.youtube.com/embed/iZU84V_QrH0?list=RDiZU84V_QrH0" title="Dr. Seuss Day Song for Kids 🎩📚  | Read Across America Celebration | Preschool Learning" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
       </div>
-      <div class="announcement1-text">
-        
-        <p>
-            A brand-new school year is here, and we are SO excited to welcome all of our Daycare & Pre-K little learners back! 💕🖍️
-
-Get ready for a year filled with learning, laughter, friendship, creativity, and lots of fun! 🌈📖🎨
-
-Whether you’re returning or joining us for the first time, we can’t wait to watch you learn, grow, explore, and shine! ⭐
-
-👩‍🏫 New year. New adventures. New memories!
-🎒 Let’s make this school year AMAZING!
-
-Welcome back, little scholars! We missed you! 💙💛
-        </p>
-      </div>
+      <button class="video-carousel-btn prev" aria-label="Previous video">&lt;</button>
+      <button class="video-carousel-btn next" aria-label="Next video">&gt;</button>
     </div>
-  </div>
-  
 
-   </section>
+    <div class="video-carousel-dots"></div>
+    <div class="video-carousel-desc" aria-live="polite"></div>
+  </section>
   
 
   <div class="main mission" id="mission" name="mission">
@@ -212,6 +212,78 @@ Welcome back, little scholars! We missed you! 💙💛
     }
 
     document.querySelectorAll('.carousel-3d-wrapper').forEach(wrapper => init3DCarousel(wrapper));
+
+    function initVideoCarousel(section) {
+      const slides = Array.from(section.querySelectorAll('.video-carousel-slide'));
+      const total = slides.length;
+      const titleEl = section.querySelector('.video-carousel-title');
+      const descEl = section.querySelector('.video-carousel-desc');
+      const dotsEl = section.querySelector('.video-carousel-dots');
+      let currentIndex = 0;
+
+      // Render every title/description stacked in the same spot so the
+      // area is always as tall as the longest one and nothing shifts.
+      const titles = slides.map(slide => {
+        const h2 = document.createElement('h2');
+        h2.textContent = slide.dataset.title;
+        titleEl.appendChild(h2);
+        return h2;
+      });
+      const descs = slides.map(slide => {
+        const p = document.createElement('p');
+        p.textContent = slide.dataset.desc;
+        descEl.appendChild(p);
+        return p;
+      });
+
+      const dots = slides.map((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'video-carousel-dot';
+        dot.setAttribute('aria-label', `Show video ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+        return dot;
+      });
+
+      function pause(slide) {
+        const iframe = slide.querySelector('iframe');
+        if (iframe) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+        const video = slide.querySelector('video');
+        if (video) video.pause();
+      }
+
+      function render() {
+        slides.forEach((slide, i) => {
+          const offset = (i - currentIndex + total) % total;
+          slide.classList.remove('is-active', 'is-prev', 'is-next');
+          if (offset === 0) slide.classList.add('is-active');
+          else if (offset === 1) slide.classList.add('is-next');
+          else if (offset === total - 1) slide.classList.add('is-prev');
+          if (offset !== 0) pause(slide);
+        });
+        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentIndex));
+        titles.forEach((el, i) => el.classList.toggle('is-active', i === currentIndex));
+        descs.forEach((el, i) => el.classList.toggle('is-active', i === currentIndex));
+      }
+
+      function goTo(newIndex) {
+        currentIndex = (newIndex + total) % total;
+        render();
+      }
+
+      section.querySelector('.video-carousel-btn.prev').addEventListener('click', () => goTo(currentIndex - 1));
+      section.querySelector('.video-carousel-btn.next').addEventListener('click', () => goTo(currentIndex + 1));
+      // Clicking a side video brings it to the center
+      slides.forEach((slide, i) => slide.addEventListener('click', () => {
+        if (i !== currentIndex) goTo(i);
+      }));
+
+      render();
+    }
+
+    document.querySelectorAll('.announcements-section').forEach(section => initVideoCarousel(section));
   </script>
 
   <%- include("partials/footer.ejs") %>
