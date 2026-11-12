@@ -458,6 +458,14 @@ img.facebook:hover {
 .showcase-right .carousel-3d-wrapper {
     margin-top: 90px;
 }
+/* Red Ribbon Week: show whole photo (no cropping) inside the same-size frame */
+.showcase-right .carousel-3d-slide {
+    background: #1a1a1a;
+}
+.showcase-right .carousel-3d-slide img {
+    object-fit: contain;
+    border-radius: 0;
+}
 .recognition-card {
     display: flex;
     flex-direction: column;
