@@ -32,10 +32,12 @@
 
 /* Circular video carousel: center video with the other two peeking on each side */
 .video-carousel {
+  /* Every slide is the same portrait 3:4 frame (fits the phone photos/videos) */
+  --slide-w: min(380px, 60vw);
   position: relative;
   width: 100%;
-  /* slides are 70% wide at 16:9 → 39.375% of the width tall */
-  aspect-ratio: 16 / 6.3;
+  height: calc(var(--slide-w) * 4 / 3);
+  overflow-x: clip;
 }
 
 .video-carousel-track {
@@ -48,8 +50,8 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 70%;
-  aspect-ratio: 16 / 9;
+  width: var(--slide-w);
+  aspect-ratio: 3 / 4;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
@@ -60,11 +62,19 @@
 }
 
 .video-carousel-slide iframe,
-.video-carousel-slide video {
+.video-carousel-slide video,
+.video-carousel-slide img {
   width: 100%;
   height: 100%;
   display: block;
   border: 0;
+}
+
+/* Photos and phone videos: show the whole picture inside the same 16:9 frame */
+.video-carousel-slide video,
+.video-carousel-slide img {
+  object-fit: contain;
+  background: #000;
 }
 
 .video-carousel-slide.is-active {
@@ -80,12 +90,13 @@
   z-index: 2;
 }
 
+/* Side slides peek out 60% of a slide width on each side */
 .video-carousel-slide.is-prev {
-  transform: translateX(-71.429%);
+  transform: translateX(-110%);
 }
 
 .video-carousel-slide.is-next {
-  transform: translateX(-28.571%);
+  transform: translateX(10%);
 }
 
 .video-carousel-slide.is-prev:hover,
@@ -159,20 +170,16 @@
 
 @media (max-width: 768px) {
   .video-carousel {
-    /* slides are 85% wide on small screens */
-    aspect-ratio: 16 / 7.65;
+    --slide-w: 65vw;
   }
 
-  .video-carousel-slide {
-    width: 85%;
-  }
-
+  /* Smaller peek on phones so the side slides stay on screen */
   .video-carousel-slide.is-prev {
-    transform: translateX(-58.824%);
+    transform: translateX(-80%);
   }
 
   .video-carousel-slide.is-next {
-    transform: translateX(-41.176%);
+    transform: translateX(-20%);
   }
 
   .video-carousel-btn {
